@@ -1,3 +1,5 @@
+
+package bbdd_conectorjdbc;
 import java.util.Scanner;
 import java.sql.DriverManager;
 import java.sql.*;

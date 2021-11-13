@@ -8,7 +8,7 @@ public class Conexion {
     public String driver = "com.mysql.jdbc.Driver";
 
     // Nombre de la base de datos
-    public String database = "iefi_programacion:1";
+    public String database = "iefi_programacion_1";
 
     // Host
     public String hostname = "localhost";
@@ -17,7 +17,7 @@ public class Conexion {
     public String port = "3306";
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
-    public String url = "jdbc:mysql://" + hostname + ":" + 3306 + "/" + database + "?useSSL=false";
+    public String url = ("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
 
     // Nombre de usuario
     public String username = "NULL";
@@ -30,7 +30,7 @@ public class Conexion {
 
         try {
             Class.forName(driver);
-            conn = DriverManager.getConnection(url, username, password);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

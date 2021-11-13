@@ -1,5 +1,5 @@
 
-//package bbdd_conectorjdbc;
+package bbdd_conectorjdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
