@@ -1,14 +1,20 @@
+import java.util.Scanner;
+
 public class Principal {
     public static void main(String[] args) throws Exception {
         System.out.println("Hola Mundo!");
-        int accion=5;
+        int accion;
+        boolean salir=false;
 
 
 
+        while (salir==false) {
+            
 
 
 
-
+        Scanner opcion = new Scanner(System.in);
+        accion=opcion.nextInt();
 
 
 		switch(accion) {
@@ -36,10 +42,14 @@ public class Principal {
                 case 8:
 				System.out.println("Habitación 8");
                 break;
+                case 9:
+				System.out.println("Fin de programa");
+                salir=true;
+                break;
                 default:
 				System.out.println("Defecto");
 		}
-
+    }
 
     }
 }
