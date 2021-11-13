@@ -27,12 +27,27 @@ public class Principal {
             case 3:
 				System.out.println("Habitación 3");
                 break;
+
+ //----------------------------------------------------------------------              
                 case 4:
-				System.out.println("Habitación 4");
+                String Listado= "SELECT * FROM `alumnos` WHERE 1";
+
+
+
+
+				System.out.println(Listado);
                 break;
+ //-----------------------------------------------------------------------
                 case 5:
 				System.out.println("Habitación 5");
+
+
+
                 break;
+//-------------------------------------------------------------------------
+
+
+
                 case 6:
 				System.out.println("Habitación 6");
                 break;
