@@ -1,4 +1,4 @@
-package bbdd_conectorjdbc;
+//package bbdd_conectorjdbc;
 
 import java.sql.*;
 
@@ -19,7 +19,7 @@ public class consulta {
             
             // 3. EJECUTAR SQL
                         
-            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM alumnos");
+            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM ASlumnos");
             
             // 4. RECORRER EL RESULTSET
             

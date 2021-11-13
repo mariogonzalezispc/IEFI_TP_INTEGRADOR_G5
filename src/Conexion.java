@@ -1,3 +1,4 @@
+//package bbdd_conectorjdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class Conexion {
     // Puerto
     public String port = "3306";
 
-    // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
+    // Ruta de nuestra base de datos 
     public String url = ("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
 
     // Nombre de usuario
