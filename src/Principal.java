@@ -1,11 +1,13 @@
 import java.util.Scanner;
-
+import java.sql.DriverManager;
+import java.sql.*;
 public class Principal {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+       
         System.out.println("Hola Mundo!");
         int accion;
         boolean salir=false;
-
+        Connection con;
 
 
         while (salir==false) {
@@ -19,6 +21,8 @@ public class Principal {
 
 		switch(accion) {
 			case 1:
+            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
+
 				System.out.println("Habitación 1");
                 break;
 			case 2:
