@@ -22,6 +22,9 @@ CREATE TABLE `iefi_programacion_1`.`alumnos`
 PRIMARY KEY (`id_alumno`))
  ENGINE = InnoDB;
 
+/*-------------------------------------------------------*/
+/*Paso 05 Carga de Alumnos(1)                               */
+/*-------------------------------------------------------*/
 
 
 
@@ -49,8 +52,45 @@ PRIMARY KEY (`id_alumno`))
   `DNI`)
   VALUES (NULL, 'Diego', 'Silva', '35555222');
 
-  INSERT INTO `alumnos` (`id_alumno`,
+  
+  
+
+
+
+/*-------------------------------------------------------*/
+/*Paso 06 Listado de todos los registros (2)             */
+/*-------------------------------------------------------*/
+
+
+  SELECT * FROM `alumnos` WHERE 1;
+  
+
+/*-------------------------------------------------------*/
+/*Paso 07 Se crea un nuevo registro con Juan Perez (3)   */
+/*-------------------------------------------------------*/
+
+INSERT INTO `alumnos` (`id_alumno`,
   `nombre`, 
   `apellido`, 
   `DNI`)
-  VALUES (NULL, 'Ivan', 'Massimino', '38664632');
+  VALUES (NULL, 'Juan', 'Perez', '123');
+
+/*-------------------------------------------------------*/
+/*Paso 08 Se modifica DNI de Juan Perez (4)              */
+/*-------------------------------------------------------*/
+
+
+UPDATE alumnos
+SET DNI=456
+WHERE nombre='Juan' AND apellido='Perez';
+
+
+/*-------------------------------------------------------*/
+/*Paso 09 Se borra el registro Juan Perez (5)            */
+/*-------------------------------------------------------*/
+
+
+
+DELETE FROM alumnos WHERE nombre='Juan' AND apellido='Perez';
+
+
