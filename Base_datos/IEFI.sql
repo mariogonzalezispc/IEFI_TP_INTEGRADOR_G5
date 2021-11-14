@@ -52,7 +52,11 @@ PRIMARY KEY (`id_alumno`))
   `DNI`)
   VALUES (NULL, 'Diego', 'Silva', '35555222');
 
-  
+    INSERT INTO `alumnos` (`id_alumno`,
+  `nombre`, 
+  `apellido`, 
+  `DNI`)
+  VALUES (NULL, 'Ivan', 'Massimino', '22555222');
   
 
 

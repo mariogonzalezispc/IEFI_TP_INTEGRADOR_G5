@@ -2,9 +2,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class borraregistro {
-    
-    public static void main(String[] args) {
+public class eliminar {
+  /*  
+    //public static void main(String[] args) {
         
         try{
              //1. CREAR CONEXION
@@ -33,6 +33,6 @@ public class borraregistro {
                 
         }    
         
-    }
-    
+    //}
+    */
 }
