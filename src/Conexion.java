@@ -1,42 +1,28 @@
-//package bbdd_conectorjdbc;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
+import java.sql.*;
 public class Conexion {
 
-    // Librería de MySQL
-    public String driver = "com.mysql.jdbc.Driver";
+public static void main (String[] args){
 
-    // Nombre de la base de datos
-    public String database = "iefi_programacion_1";
+    
+    try {
+            //Crear coneccion
+            Connection miConexion = DriverManager.getConnection ("jdbc:mysql://localhost:3306/iefi_programacion_1","root","monica1971");
+            System.out.println("Conexion Existosa!! \n");
 
-    // Host
-    public String hostname = "localhost";
+            //Crear objetos statement
+            Statement miStatement = miConexion.createStatement();
 
-    // Puerto
-    public String port = "3306";
+            //Ejecutar SQL
+            ResultSet miResultSet = miStatement.executeQuery("Select * From alumnos");
 
-    // Ruta de nuestra base de datos 
-    public String url = ("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
+            //Recorrer el resultset
+            while(miResultSet.next()){
+                System.out.println(miResultSet.getString("nombre") + " " + miResultSet.getString("apellido") + " " + miResultSet.getString("DNI") + " " );
+                 }
 
-    // Nombre de usuario
-    public String username = "NULL";
-
-    // Clave de usuario
-    public String password = "NULL";
-
-    public Connection conectarMySQL() {
-        Connection conn = null;
-
-        try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
-        } catch (ClassNotFoundException | SQLException e) {
+        }catch (Exception e) {
+            System.out.println("No conecta!!");
             e.printStackTrace();
         }
-
-        return conn;
     }
-
 }

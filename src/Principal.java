@@ -1,20 +1,21 @@
 
-package bbdd_conectorjdbc;
+//package ;
 import java.util.Scanner;
-import java.sql.DriverManager;
 import java.sql.*;
 public class Principal {
-    public static void main(String[] args) {
-       
-        System.out.println("Hola Mundo!");
+    public static void main(String[] args, String string) throws SQLException {
+        
+        
+        //System.out.println("Hola Mundo!");
         int accion;
         boolean salir=false;
-        Connection con;
+        
+        
 
 
         while (salir==false) {
             
-
+            
 
 
         Scanner opcion = new Scanner(System.in);
@@ -23,9 +24,9 @@ public class Principal {
 
 		switch(accion) {
 			case 1:
-            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
+            Connection miConexion = DriverManager.getConnection ("jdbc:mysql://localhost:3306/iefi_programacion_1","root","monica1971");
 
-				System.out.println("Habitación 1");
+				System.out.println(string);
                 break;
 			case 2:
 				System.out.println("Habitación 2");
