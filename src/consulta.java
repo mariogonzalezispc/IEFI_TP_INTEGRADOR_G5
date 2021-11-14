@@ -1,4 +1,3 @@
-//package bbdd_conectorjdbc;
 
 import java.sql.*;
 

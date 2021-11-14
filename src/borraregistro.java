@@ -1,9 +1,9 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
-import java.sql.*;
-
-
-public class nuevoregistro {
-
+public class borraregistro {
+    
     public static void main(String[] args) {
         
         try{
@@ -16,21 +16,15 @@ public class nuevoregistro {
             // 2. CREAR OBJETO STATEMENT
             
             Statement miStatement = miConexion.createStatement();
-
-            ResultSet miResultSet = miStatement.executeQuery ("SELECT * FROM alumnos WHERE 1");
             
-            // 3. EJECUTAR SQL
-                        
-            String sql= "INSERT INTO  alumnos (id_alumno, nombre, apellido, DNI)  VALUES ('NULL', 'Juan', 'Perez', '123')";
+            // 3. EJECUTAR INSTRUCCION Modifica EN LA BASE DE DATOS
             
-
+            String SQL = "DELETE FROM alumnos WHERE nombre='Juan' AND apellido='Perez'";
             
-            // 4. RECORRER EL RESULTSET
+            miStatement.executeUpdate(SQL);
             
-            while(miResultSet.next()){
-                
-                System.out.println(miResultSet.getInt("DNI") + " " + miResultSet.getString("nombre") + " " + miResultSet.getString("apellido"));
-            }
+            System.out.println("El registro fue eliminado correctamente");;
+            
         }catch (Exception e){
             
             System.out.println("No conecta!!");

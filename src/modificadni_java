@@ -1,13 +1,11 @@
 
-//package bbdd_conectorjdbc;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-
-public class update {
-    
+public class modificadni {
     
     public static void main(String[] args) {
         
@@ -22,15 +20,15 @@ public class update {
             
             Statement miStatement = miConexion.createStatement();
             
-            // 3. EJECUTAR INSTRUCCION Agregar EN LA BASE DE DATOS
+            // 3. EJECUTAR INSTRUCCION Modifica EN LA BASE DE DATOS
             
             String instruccionSQL = UPDATE alumnos
-            SET DNI="456"
-            WHERE nombre="Juan" AND apellido="Perez";
+            SET DNI=456
+            WHERE nombre='Juan' AND apellido='Perez';
             
             miStatement.executeUpdate(instruccionSQL);
             
-            System.out.println("Los datos han sido modificados correctamente");
+            System.out.println("El DNI fue modificado correctamente");
             
         }catch (Exception e){
             
