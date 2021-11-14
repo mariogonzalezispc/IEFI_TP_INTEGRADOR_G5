@@ -14,7 +14,7 @@ public class update {
         try{
              //1. CREAR CONEXION
             
-            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","NULL","NULL");
+            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","root","monica1971");
             
             System.out.println("CONEXION EXITOSA!! \n");
             
@@ -22,9 +22,11 @@ public class update {
             
             Statement miStatement = miConexion.createStatement();
             
-            // 3. EJECUTAR INSTRUCCION DML EN LA BASE DE DATOS
+            // 3. EJECUTAR INSTRUCCION Agregar EN LA BASE DE DATOS
             
-            String instruccionSQL = "UPDATE alumnos SET nombre = Juan WHERE apellido = Perez ";
+            String instruccionSQL = UPDATE alumnos
+            SET DNI="456"
+            WHERE nombre="Juan" AND apellido="Perez";
             
             miStatement.executeUpdate(instruccionSQL);
             

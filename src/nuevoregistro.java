@@ -1,6 +1,7 @@
-//package bbdd_conectorjdbc;
 
 import java.sql.*;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 
 public class consulta {
 
@@ -19,7 +20,8 @@ public class consulta {
             
             // 3. EJECUTAR SQL
                         
-            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM Alumnos");
+            String sql= insert into alumnos ("id_alumno","nombre", "apellido", "DNI")
+                VALUES (NULL, "Juan","Perez", "123");
             
             // 4. RECORRER EL RESULTSET
             

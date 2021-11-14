@@ -5,7 +5,7 @@ public static void main (String[] args){
 
     
     try {
-            //Crear coneccion
+            //Crear conexion
             Connection miConexion = DriverManager.getConnection ("jdbc:mysql://localhost:3306/iefi_programacion_1","root","monica1971");
             System.out.println("Conexion Existosa!! \n");
 
