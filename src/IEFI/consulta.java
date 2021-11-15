@@ -1,10 +1,10 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+package IEFI;
 
-public class eliminar {
-  /*  
-    //public static void main(String[] args) {
+import java.sql.*;
+
+public class consulta {/*
+
+    public static void main(String[] args) {
         
         try{
              //1. CREAR CONEXION
@@ -17,14 +17,16 @@ public class eliminar {
             
             Statement miStatement = miConexion.createStatement();
             
-            // 3. EJECUTAR INSTRUCCION Modifica EN LA BASE DE DATOS
+            // 3. EJECUTAR SQL
+                        
+            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM Alumnos");
             
-            String SQL = "DELETE FROM alumnos WHERE nombre='Juan' AND apellido='Perez'";
+            // 4. RECORRER EL RESULTSET
             
-            miStatement.executeUpdate(SQL);
-            
-            System.out.println("El registro fue eliminado correctamente");;
-            
+            while(miResultSet.next()){
+                
+                System.out.println(miResultSet.getInt("DNI") + " " + miResultSet.getString("nombre") + " " + miResultSet.getString("apellido"));
+            }
         }catch (Exception e){
             
             System.out.println("No conecta!!");
@@ -33,6 +35,6 @@ public class eliminar {
                 
         }    
         
-    //}
+    }
     */
 }

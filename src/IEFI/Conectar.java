@@ -1,10 +1,52 @@
+package IEFI;
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.sql.*;
-public class conexion {
+
+public class Conectar{
+Connection con;
+
+public Conectar(){
+
+try {
+Class.forName("com.mysql.jdbc.Driver");
+con=DriverManager.getConnection("jdbc:mysql://localhost:3306/iefi_programacion_1","root","1234");
+System.out.println("Conexion Existosa!! \n");
+  
+} catch (Exception e) {
+    System.out.println("No conecta!!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Connection miConexion = DriverManager.getConnection ("jdbc:mysql://localhost:3306/iefi_programacion_1","root","1234");
+
+}
+
+
+
 
 /*
-
-
-
 public static void main (String[] args){
 
     
