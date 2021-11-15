@@ -2,11 +2,7 @@ package IEFI;
 
 import java.util.Scanner;
 import IEFI.Conectar;
-import IEFI.Limpia;
 import java.sql.*;
-import java.lang.ProcessBuilder;
-
-import java.io.IOException;
 
 
 
@@ -14,8 +10,7 @@ public class principal {
     public static void main(String[] args) {
     //System.out.println("Hola Mundo!");      
        Conectar cn=new Conectar();//Instancia el objeto conectar
-       Limpia cls=new Limpia();
-       Statement st;
+        Statement st;
        ResultSet rs;
 try {
        int accion;
