@@ -10,7 +10,9 @@ public class Conectar_bd {
 //Atributos
 //---------------------------------------
 private String conecto;
-
+private String url;
+private String usuario;
+private String clave;
 
 //---------------------------------------
 //Constructor
@@ -18,16 +20,36 @@ private String conecto;
 
 
 //---------------------------------------
-//metodo Setter para guardar la conexion
+//metodo Setter para guardar url
 //---------------------------------------
-    public void setConecto(String conecto){
-        this.conecto=conecto;
+    public void setUrl(String url){
+        this.url=url;
     }   
+//---------------------------------------
+//metodo Setter para guardar usuario
+//---------------------------------------
+    public void setUsuario(String usuario){
+    this.usuario=usuario;
+    }   
+//---------------------------------------
+//metodo Setter para guardar clave
+//---------------------------------------
+    public void setClave(String clave){
+    this.clave=clave;
+    }   
+
+
+
+
+
+
 
 //---------------------------------------
 //metodo Getter recuperar la conexion
 //---------------------------------------
     public String getConecto(){
-        return conecto;
+        conecto=url+","+usuario+","+clave;
+              return conecto;
     }
+
 }
