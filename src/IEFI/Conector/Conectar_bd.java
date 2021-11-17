@@ -14,7 +14,6 @@ public class Conectar_bd {
  String usuario=("root");
  String clave=("1234");
 Connection con;
-
 //---------------------------------------
 //Constructor
 //--------------------------------------
@@ -27,7 +26,6 @@ Connection con;
         } catch (Exception e) {
             System.out.println("No conecta");
         }
-
     }
 //---------------------------------------
 //metodo retorno de conection
@@ -35,12 +33,6 @@ Connection con;
     public Connection getConnection(){
         return con;
     }
- 
-
-
-
-
-
 //---------------------------------------
 //metodo Setter para guardar url
 //---------------------------------------
