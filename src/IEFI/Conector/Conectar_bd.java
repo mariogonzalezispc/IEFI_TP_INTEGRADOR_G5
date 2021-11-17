@@ -5,16 +5,17 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.*;
 
-
 public class Conectar_bd {
 //---------------------------------------
 //Atributos
 //---------------------------------------
 private String conecto;
 
+
 //---------------------------------------
 //Constructor
 //--------------------------------------
+
 
 //---------------------------------------
 //metodo Setter para guardar la conexion
@@ -22,6 +23,7 @@ private String conecto;
     public void setConecto(String conecto){
         this.conecto=conecto;
     }   
+
 //---------------------------------------
 //metodo Getter recuperar la conexion
 //---------------------------------------

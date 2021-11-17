@@ -15,6 +15,6 @@ public class Principal {
         System.out.println("carga direccion  "+C1.getConecto());
 
 
-        System.out.println("Hello, World!");
+        System.out.println("cls");
     }
 }
