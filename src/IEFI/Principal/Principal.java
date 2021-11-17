@@ -63,9 +63,9 @@ public class Principal {
                     System.out.println("Opcion 8");
                     break;
      //---------------------------------------------------------------------- 
-                    case 9:
-                    System.out.println("Fin de programa");//sale del programa
-                    opcion.close();//cierra la base de datos
+                    case 9://sale del programa
+                    System.out.println("Fin de programa");
+                    opcion.close();//cierra scanner
                     salir=true;// sale del while
                     break;
      //----------------------------------------------------------------------                 
