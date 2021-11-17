@@ -19,6 +19,7 @@ Connection con;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection(this.url, this.usuario, this.clave);
+            
             if(accion==1){
             System.out.println("Conexion con la base de datos Exitosa");
             }
