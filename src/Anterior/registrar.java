@@ -1,13 +1,10 @@
-package IEFI;
+package IEFI.Anterior;
+
+import java.sql.*;
 
 
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-
-public class modifica {/*
-    
+public class registrar {
+/*
     public static void main(String[] args) {
         
         try{
@@ -20,17 +17,21 @@ public class modifica {/*
             // 2. CREAR OBJETO STATEMENT
             
             Statement miStatement = miConexion.createStatement();
+
+            ResultSet miResultSet = miStatement.executeQuery ("SELECT * FROM alumnos WHERE 1");
             
-            // 3. EJECUTAR INSTRUCCION Modifica EN LA BASE DE DATOS
+            // 3. EJECUTAR SQL
+                        
+            String sql= "INSERT INTO  alumnos (id_alumno, nombre, apellido, DNI)  VALUES ('NULL', 'Juan', 'Perez', '123')";
             
-            String instruccionSQL = UPDATE alumnos
-            SET DNI=456
-            WHERE nombre='Juan' AND apellido='Perez';
+
             
-            miStatement.executeUpdate(instruccionSQL);
+            // 4. RECORRER EL RESULTSET
             
-            System.out.println("El DNI fue modificado correctamente");
-            
+            while(miResultSet.next()){
+                
+                System.out.println(miResultSet.getInt("DNI") + " " + miResultSet.getString("nombre") + " " + miResultSet.getString("apellido"));
+            }
         }catch (Exception e){
             
             System.out.println("No conecta!!");

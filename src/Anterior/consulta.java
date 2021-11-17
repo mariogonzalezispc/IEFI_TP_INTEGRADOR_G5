@@ -1,10 +1,9 @@
-package IEFI;
+package IEFI.Anterior;
 
 import java.sql.*;
 
+public class consulta {/*
 
-public class registrar {
-/*
     public static void main(String[] args) {
         
         try{
@@ -17,14 +16,10 @@ public class registrar {
             // 2. CREAR OBJETO STATEMENT
             
             Statement miStatement = miConexion.createStatement();
-
-            ResultSet miResultSet = miStatement.executeQuery ("SELECT * FROM alumnos WHERE 1");
             
             // 3. EJECUTAR SQL
                         
-            String sql= "INSERT INTO  alumnos (id_alumno, nombre, apellido, DNI)  VALUES ('NULL', 'Juan', 'Perez', '123')";
-            
-
+            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM Alumnos");
             
             // 4. RECORRER EL RESULTSET
             

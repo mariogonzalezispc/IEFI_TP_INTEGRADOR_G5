@@ -1,12 +1,14 @@
-package IEFI;
+package IEFI.Anterior;
 
 import java.util.Scanner;
-import IEFI.Conectar;
+
+import IEFI.Anterior.Conectar;
+
 import java.sql.*;
 
 
 
-public class principal {
+public class principal_1 {
     public static void main(String[] args) {
     //System.out.println("Hola Mundo!");      
        Conectar cn=new Conectar();//Instancia el objeto conectar
