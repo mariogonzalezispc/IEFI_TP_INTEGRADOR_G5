@@ -1,4 +1,4 @@
-package Conector;
+package IEFI.Conector;
 //import java.sql.*;
 public class Conectar1 {
 
