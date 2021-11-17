@@ -7,22 +7,31 @@ public class Conectar_bd {
 //Atributos
 //---------------------------------------
  private String conecto;
- private String url;//=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
- private String usuario;//=("root");
- private String clave;//=("1234");
+ private String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
+ private String usuario=("root");
+ private String clave=("1234");
+ int tipo;
 Connection con;
 //---------------------------------------
 //Constructor
 //--------------------------------------
-    public Conectar_bd(){
+    public Conectar_bd(int accion){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection(this.url, this.usuario, this.clave);
+            if(accion==1){
             System.out.println("Conexion con la base de datos Exitosa");
+            }
+
         } catch (Exception e) {
             System.out.println("No conecta");
         }
     }
+
+
+
+
+
 //---------------------------------------
 //metodo retorno de conection
 //---------------------------------------

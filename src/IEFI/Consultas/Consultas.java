@@ -1,6 +1,5 @@
 package IEFI.Consultas;
 
-
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.*;
@@ -15,7 +14,6 @@ public class Consultas {
     String nombre;
     String apellido;
     int dni;
-    //nnection cn;
 
 //-----------------------------------------------
 //Constructor
@@ -28,8 +26,8 @@ public class Consultas {
 //-----------------------------------------------
 //Busqueda
 //-----------------------------------------------
-    public void mostrarDatos(){
-        Conectar_bd c2=new Conectar_bd();
+    public void mostrarDatos(int accion){
+        Conectar_bd c2=new Conectar_bd(accion);
         String lista="SELECT * FROM `alumnos` WHERE 1";
         Connection cn;
         Statement st;
