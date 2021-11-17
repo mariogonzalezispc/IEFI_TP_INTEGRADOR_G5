@@ -9,20 +9,20 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) throws Exception {
         Conectar_bd C1=new Conectar_bd();
-        C1.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");
-        C1.setUsuario("root");
-        C1.setClave("1234");
+        C1.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");//url de la base de datos
+        C1.setUsuario("root");//usuario de la base de datos
+        C1.setClave("1234");//clave de la base de datos
         
         //System.out.println("Conexion : "+C1.getConecto());
 
         try {
-            int accion;
-            boolean salir=false;
-            while (salir==false) {
-            Scanner opcion = new Scanner(System.in);
+            int accion;//declaro variable para el switch
+            boolean salir=false;//declaro variable para el while
+            while (salir==false) {//verifico si entro o no al while
+            Scanner opcion = new Scanner(System.in);//capturo el valor ingresado por el usuario
             accion=opcion.nextInt();
      //----------------------------------------------------------------------
-     //Switch para decidir la operacion del usuario
+     //Switch para decidir el valor ingresado por el usuario
      //----------------------------------------------------------------------
             switch(accion) {
      //---------------------------------------------------------------------- 
@@ -64,15 +64,17 @@ public class Principal {
                     break;
      //---------------------------------------------------------------------- 
                     case 9:
-                    System.out.println("Fin de programa");
-                    opcion.close();
-                    salir=true;
+                    System.out.println("Fin de programa");//sale del programa
+                    opcion.close();//cierra la base de datos
+                    salir=true;// sale del while
                     break;
      //----------------------------------------------------------------------                 
                     default:
                     System.out.println("Defecto");
             }
         }
-         } catch (Exception e) {}
+         } catch (Exception e) {
+
+         }
     }
 }
