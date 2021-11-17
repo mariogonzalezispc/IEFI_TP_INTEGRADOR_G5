@@ -37,13 +37,6 @@ private String clave;
     public void setClave(String clave){
     this.clave=clave;
     }   
-
-
-
-
-
-
-
 //---------------------------------------
 //metodo Getter recuperar la conexion
 //---------------------------------------
