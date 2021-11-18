@@ -13,11 +13,11 @@ public class Principal {
         int accion=0;//variable para el switch
         Class.forName("com.mysql.jdbc.Driver");
     //---------------------------------------------------------------------- 
-        Conectar_bd c0=new Conectar_bd(accion);
-        c0.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");
-        c0.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");//url de la base de datos
-        c0.setUsuario("root");//usuario de la base de datos
-        c0.setClave("1234");//clave de la base de datos
+       //Conectar_bd c0=new Conectar_bd(accion);
+       // c0.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");
+       // c0.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");//url de la base de datos
+       // c0.setUsuario("root");//usuario de la base de datos
+       // c0.setClave("1234");//clave de la base de datos
      //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while
