@@ -4,6 +4,7 @@ package IEFI.Principal;
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
 import IEFI.Insertar.*;
+import java.sql.*;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +17,12 @@ public class Principal {
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
         CabeceraDoc();//clase que imprime la cabecera del documento
+
+
+        
+
+
+
     //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while Switch
@@ -38,6 +45,8 @@ public class Principal {
      //---------------------------------------------------------------------- 
                     case 1://generar una conexion
                     Conectar_bd c1=new Conectar_bd(accion);
+
+    
                     break;
      //---------------------------------------------------------------------- 
                     case 2:
@@ -134,6 +143,7 @@ public class Principal {
                         System.out.println("Fin de programa");
                         opcion.close();//cierra scanner
                         salir=true;// sale del while
+                        
                     break;
      //----------------------------------------------------------------------                 
                     default://cae a default solo si es reiniciado por la exeption 
@@ -145,13 +155,14 @@ public class Principal {
                     System.out.println(e);
         }
     }
-//--------------------------------------------------------------------------------------
+
+    //--------------------------------------------------------------------------------------
 //Void de ayuda al programa principal 
 //--------------------------------------------------------------------------------------
     public static void LimpiarPantalla() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } catch (Exception e) {
+                } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -162,15 +173,17 @@ public class Principal {
             String cmotivo="IEFI_Programacion_1";
             String institucion="| Institucion : ISPC  Materia : Programacion 1 JAVA";
             String total="| Aula  3  Grupo 5  :  Ejercicio : "+cmotivo+" |";
-            String Abril=("| Integrantes :  Clavaguera, Abril ");
+            String Abril=("| Integrantes :  Clavaguera, Abril");
             String Laura=("|                Heredia, Laura ");
             String Monica=("|                Zapata, Monica ");
             String Gaston=("|                Ferreyra, Gaston ");
             String Mario=("|                Gonzalez, Mario ");
+            
+
                 try {
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                } catch (Exception e) {
-                    }
+                    } catch (Exception e) {
+                }
                 for (int x=0; x<total.length(); x++) {
                     System.out.print("=");           
                 }          
@@ -189,6 +202,7 @@ public class Principal {
         Relleno(total, Gaston);       
         System.out.print(Mario);
         Relleno(total, Mario);
+
             for (int k=0; k<3; k++) {
             if (k==0) {
                 for (int z=0; z<total.length(); z++) {

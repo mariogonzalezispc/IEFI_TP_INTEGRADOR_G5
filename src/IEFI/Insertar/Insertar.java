@@ -1,6 +1,7 @@
 package IEFI.Insertar;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 //import java.sql.*;
 import IEFI.Conector.*;
@@ -26,7 +27,7 @@ public Insertar(String nombre,String apellido,int dni){
 //-----------------------------------------------
 //Insertar un registro nuevo
 //-----------------------------------------------
-public void insertarDatos(int accion){
+public void insertarDatos(int accion) throws SQLException{
     Conectar_bd c2=new Conectar_bd(accion);
     String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES (NULL, '"+nombre+"', '"+apellido+"','"+dni+"')";
 
@@ -47,7 +48,7 @@ public void insertarDatos(int accion){
 //-----------------------------------------------
 //Insertar un registro nuevo
 //-----------------------------------------------
-public void modificarDatos(int accion){
+public void modificarDatos(int accion) throws SQLException{
 
 
 

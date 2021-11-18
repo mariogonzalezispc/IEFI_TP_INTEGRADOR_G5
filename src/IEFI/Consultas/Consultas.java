@@ -1,7 +1,5 @@
 package IEFI.Consultas;
 
-import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.*;
 import IEFI.Conector.*;
 
@@ -26,7 +24,7 @@ public class Consultas {
 //-----------------------------------------------
 //listado general
 //-----------------------------------------------
-    public void mostrarDatos(int accion){
+    public void mostrarDatos(int accion) throws SQLException{
         Conectar_bd c2=new Conectar_bd(accion);
         String lista="SELECT * FROM `alumnos` WHERE 1";
         Connection cn;

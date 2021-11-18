@@ -15,7 +15,7 @@ Connection con;
 //---------------------------------------
 //Constructor
 //--------------------------------------
-    public Conectar_bd(int accion){
+ public Conectar_bd(int accion){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection(this.url, this.usuario, this.clave);
@@ -23,16 +23,10 @@ Connection con;
             if(accion==1){
             System.out.println("Conexion con la base de datos Exitosa");
             }
-
         } catch (Exception e) {
             System.out.println("No conecta");
         }
     }
-
-
-
-
-
 //---------------------------------------
 //metodo retorno de conection
 //---------------------------------------
