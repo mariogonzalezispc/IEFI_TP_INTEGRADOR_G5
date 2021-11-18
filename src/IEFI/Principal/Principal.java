@@ -3,7 +3,7 @@ package IEFI.Principal;
 
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
-import IEFI.Insertar.Insertar;
+import IEFI.Insertar.*;
 import java.util.Scanner;
 
 
