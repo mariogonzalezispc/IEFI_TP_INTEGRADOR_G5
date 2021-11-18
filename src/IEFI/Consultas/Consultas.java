@@ -24,7 +24,7 @@ public class Consultas {
             //this.dni=dni;
     }
 //-----------------------------------------------
-//Busqueda
+//listado general
 //-----------------------------------------------
     public void mostrarDatos(int accion){
         Conectar_bd c2=new Conectar_bd(accion);
@@ -38,11 +38,21 @@ public class Consultas {
             st=cn.createStatement();
             r1=st.executeQuery(lista);
            while(r1.next()){
-               System.out.println(r1.getInt("DNI") + " " + r1.getString("nombre") + " " + r1.getString("apellido"));
+               //System.out.println(r1.getInt("DNI") + " " + r1.getString("nombre") + " " + r1.getString("apellido"));
+               System.out.println(r1.getString("apellido") + " " + r1.getString("nombre") + " " + r1.getInt("DNI"));
            }
             }catch (Exception e){
         System.out.println("Error en listar alumnos");
        }    
     } 
+
+
+
+
+
+
+
+
+
 //-----------fin de clase------------------------------------
 }

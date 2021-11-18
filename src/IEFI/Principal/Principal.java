@@ -3,8 +3,11 @@ package IEFI.Principal;
 
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
+import IEFI.Insertar.Insertar;
 
 import java.util.Scanner;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 
 
 
@@ -22,6 +25,7 @@ public class Principal {
      //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while
+            boolean salir1=false;//declaro variable boleana para el while
      //----------------------------------------------------------------------      
             while (salir==false) {//verifico si entro o no al while
      //----------------------------------------------------------------------            
@@ -43,16 +47,48 @@ public class Principal {
                     break;
      //---------------------------------------------------------------------- 
                     case 2:
-                    System.out.println("--------------------------------");                    
-                    System.out.println("Listado de alumnos Grupo 5 ISPC");
-                    System.out.println("--------------------------------");
+                    System.out.println("---------------------------------");                    
+                    System.out.println("Listado de alumnos Grupo 5 ISPC  ");
+                    System.out.println("---------------------------------");
                     System.out.println("");
                     Consultas muestra=new Consultas();
                     muestra.mostrarDatos(accion);
                     break;
      //---------------------------------------------------------------------- 
                     case 3:
-                        System.out.println("Opcion 3");             
+                    System.out.println("---------------------------------");                    
+                    System.out.println("Cargar nuevo alumno Grupo 5 ISPC");
+                    System.out.println("---------------------------------");
+                    System.out.println("");
+                    String ape="";
+                    String nom="";
+                    int dni=0;
+                    System.out.println("Ingrese apellido del alumno\n");
+                    Scanner a1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        ape=a1.next();//metodo scanner captura dato ingresado solo si es entero
+                        System.out.println("Ingrese nombre del alumno\n");
+                    Scanner n1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        nom=n1.next();//metodo scanner captura dato ingresado solo si es entero
+                        System.out.println("Ingrese documento del alumno\n");
+                            while (salir1==false) {
+                            Scanner d1 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
+                                try {//try que restringe errores de ingreso de opcion 
+                                    dni=d1.nextInt();//metodo scanner captura dato ingresado solo si es entero
+                                    salir1=true;
+                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
+                                    System.out.println("ERROR: ingrese solo numeros");}
+                                }        
+                     Insertar I1=new Insertar(nom, ape, dni);
+                     I1.insertarDatos(accion);
+
+
+
+
+
+
+
+
+                    salir1=false;
                     break;
      //----------------------------------------------------------------------              
                     case 4:
