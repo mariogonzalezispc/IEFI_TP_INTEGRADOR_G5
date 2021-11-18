@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) throws Exception {
         int accion=0;//variable para el switch
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
     //---------------------------------------------------------------------- 
        //Conectar_bd c0=new Conectar_bd(accion);
        // c0.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");
@@ -20,8 +20,9 @@ public class Principal {
        // c0.setClave("1234");//clave de la base de datos
      //---------------------------------------------------------------------- 
         try {
-            boolean salir=false;//declaro variable boleana para el while
-            boolean salir1=false;//declaro variable boleana para el while
+            boolean salir=false;//declaro variable boleana para el while Switch
+            boolean salir1=false;//declaro variable boleana para el while opcion3
+            boolean salir2=false;//declaro variable boleana para el while opcion4
      //----------------------------------------------------------------------      
             while (salir==false) {//verifico si entro o no al while
      //----------------------------------------------------------------------            
@@ -61,22 +62,25 @@ public class Principal {
                     int dni=0;
                     System.out.println("Ingrese apellido del alumno\n");
                     Scanner a1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        ape=a1.next();//metodo scanner captura dato ingresado solo si es entero
+                        ape=a1.next();//metodo scanner captura dato ingresado
                         System.out.println("Ingrese nombre del alumno\n");
                     Scanner n1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        nom=n1.next();//metodo scanner captura dato ingresado solo si es entero
+                        nom=n1.next();//metodo scanner captura dato ingresado
                         System.out.println("Ingrese documento del alumno\n");
                             while (salir1==false) {
                             Scanner d1 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
                                 try {//try que restringe errores de ingreso de opcion 
                                     dni=d1.nextInt();//metodo scanner captura dato ingresado solo si es entero
                                     salir1=true;
+                                    d1.close();
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }        
                     Insertar I1=new Insertar(nom, ape, dni);
                     I1.insertarDatos(accion);
                     salir1=false;
+                    a1.close();
+                    n1.close();
                     break;
      //----------------------------------------------------------------------              
                     case 4:
@@ -89,29 +93,30 @@ public class Principal {
                     dni=0;
                     System.out.println("Ingrese apellido del alumno\n");
                     Scanner a2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        ape=a2.next();//metodo scanner captura dato ingresado solo si es entero
+                        ape=a2.next();//metodo scanner captura dato ingresado 
 
                         System.out.println("Ingrese nombre del alumno\n");
                     Scanner n2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        nom=n2.next();//metodo scanner captura dato ingresado solo si es entero
+                        nom=n2.next();//metodo scanner captura dato ingresado
 
                         
                         System.out.println("Ingrese documento del alumno\n");
 
-                            while (salir1==false) {
+                            while (salir2==false) {
                             Scanner d2 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
                                 try {//try que restringe errores de ingreso de opcion 
                                     dni=d2.nextInt();//metodo scanner captura dato ingresado solo si es entero
-                                    salir1=true;
+                                    salir2=true;
+                                    d2.close();
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }     
 
                     Insertar I2=new Insertar(nom, ape, dni);
                     I2.modificarDatos(accion);
-                    salir1=false;
-
-
+                    salir2=false;
+                    a2.close();
+                    n2.close();
                        // System.out.println("Opcion 4"); 
                     break;
      //-----------------------------------------------------------------------
@@ -146,4 +151,5 @@ public class Principal {
             System.out.println(e);
          }
     }
+
 }
