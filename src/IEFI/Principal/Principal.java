@@ -4,11 +4,7 @@ package IEFI.Principal;
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
 import IEFI.Insertar.Insertar;
-
 import java.util.Scanner;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
-
 
 
 
@@ -78,21 +74,45 @@ public class Principal {
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }        
-                     Insertar I1=new Insertar(nom, ape, dni);
-                     I1.insertarDatos(accion);
-
-
-
-
-
-
-
-
+                    Insertar I1=new Insertar(nom, ape, dni);
+                    I1.insertarDatos(accion);
                     salir1=false;
                     break;
      //----------------------------------------------------------------------              
                     case 4:
-                        System.out.println("Opcion 4"); 
+                    System.out.println("---------------------------------");                    
+                    System.out.println("Modificar DNI");
+                    System.out.println("---------------------------------");
+                    System.out.println("");
+                    ape="";
+                    nom="";  
+                    dni=0;
+                    System.out.println("Ingrese apellido del alumno\n");
+                    Scanner a2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        ape=a2.next();//metodo scanner captura dato ingresado solo si es entero
+
+                        System.out.println("Ingrese nombre del alumno\n");
+                    Scanner n2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        nom=n2.next();//metodo scanner captura dato ingresado solo si es entero
+
+                        
+                        System.out.println("Ingrese documento del alumno\n");
+
+                            while (salir1==false) {
+                            Scanner d2 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
+                                try {//try que restringe errores de ingreso de opcion 
+                                    dni=d2.nextInt();//metodo scanner captura dato ingresado solo si es entero
+                                    salir1=true;
+                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
+                                    System.out.println("ERROR: ingrese solo numeros");}
+                                }     
+
+                    Insertar I2=new Insertar(nom, ape, dni);
+                    I2.modificarDatos(accion);
+                    salir1=false;
+
+
+                       // System.out.println("Opcion 4"); 
                     break;
      //-----------------------------------------------------------------------
                     case 5:
