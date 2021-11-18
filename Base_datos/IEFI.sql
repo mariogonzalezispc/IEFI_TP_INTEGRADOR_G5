@@ -55,35 +55,6 @@ PRIMARY KEY (`id_alumno`))
 /*-------------------------------------------------------*/
 
 
-/*
-
-
-  INSERT INTO `alumnos` (`id_alumno`,
-  `apellido`, 
-  `nombre`, 
-   `DNI`)
-  VALUES (NULL, 'Monica', 'Antich', '22455632');
-
-  INSERT INTO `alumnos` (`id_alumno`,
-  `nombre`, 
-  `apellido`, 
-  `DNI`)
-  VALUES (NULL, 'Juan', 'Lopez', '27355422');
-
-  INSERT INTO `alumnos` (`id_alumno`,
-  `nombre`, 
-  `apellido`, 
-  `DNI`)
-  VALUES (NULL, 'Diego', 'Silva', '35555222');
-
-    INSERT INTO `alumnos` (`id_alumno`,
-  `nombre`, 
-  `apellido`, 
-  `DNI`)
-  VALUES (NULL, 'Ivan', 'Massimino', '22555222');
-  
-*/
-
 
 /*-------------------------------------------------------*/
 /*Paso 06 Listado de todos los registros (2)             */
