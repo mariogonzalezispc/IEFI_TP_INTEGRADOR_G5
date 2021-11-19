@@ -145,18 +145,6 @@ public class Principal {
                    
                    
                     break;
-     //-------------------------------------------------------------------------
-                    case 6:
-                        System.out.println("Opcion 6");
-                    break;
-     //---------------------------------------------------------------------- 
-                    case 7:
-                        System.out.println("Opcion 7");
-                    break;
-     //---------------------------------------------------------------------- 
-                    case 8:
-                        System.out.println("Opcion 8");
-                    break;
      //---------------------------------------------------------------------- 
                     case 9://sale del programa
                         System.out.println("Fin de programa");
