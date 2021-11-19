@@ -35,6 +35,9 @@ public class Consultas {
             cn=c2.getConnection();
             st=cn.createStatement();
             r1=st.executeQuery(lista);
+
+
+            
            while(r1.next()){
                //System.out.println(r1.getInt("DNI") + " " + r1.getString("nombre") + " " + r1.getString("apellido"));
                System.out.println(r1.getString("apellido") + " " + r1.getString("nombre") + " " + r1.getInt("DNI"));
