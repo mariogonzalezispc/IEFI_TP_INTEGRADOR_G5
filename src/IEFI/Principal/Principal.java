@@ -4,7 +4,7 @@ package IEFI.Principal;
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
 import IEFI.Insertar.*;
-import java.sql.*;
+//import java.sql.*;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +15,7 @@ public class Principal {
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
         CabeceraDoc();//clase que imprime la cabecera del documento
+        Opciones();
     //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while Switch
@@ -37,7 +38,12 @@ public class Principal {
             switch(accion) {
      //---------------------------------------------------------------------- 
                     case 1://generar una conexion
+                    //Opciones();
                     Conectar_bd c1=new Conectar_bd(accion);
+                    Thread.sleep(2000);
+                    LimpiarPantalla();//clase que limpia la pantalla
+                    Opciones();
+
                     break;
      //---------------------------------------------------------------------- 
                     case 2:
@@ -151,6 +157,12 @@ public class Principal {
                         opcion.close();//cierra scanner
                         salir=true;// sale del while
                     break;
+    //---------------------------------------------------------------------- 
+                    case 0://sale del programa
+                    LimpiarPantalla();//clase que limpia la pantalla
+                    Opciones();//llama a la funcion que muestra las opciones            
+                    salir=false;// sale del while
+                    break;                
      //----------------------------------------------------------------------                 
                     default://cae a default solo si es reiniciado por la exeption 
                         System.out.println("Reintente ingresar opcion");
@@ -232,7 +244,63 @@ public class Principal {
         } 
     }
 //--------------------------------------------------------------------------------------
+    public static void Opciones(){
 
+        int ancho=98;
+        String opcion1="|   Conectar con base de datos presione :  1    |";
+        String opcion2="|   Listar registro alumnos    presione :  2    |";
+        String opcion3="|   Insertar registro alumnos  presione :  3    |";
+        String opcion4="|   Modificar registro alumnos presione :  4    |";
+        String opcion5="|   Eliminar registro alumno   presione :  5    |";
+        String opcion6="|   Salir del programa         presione :  9    |";
+        String opcion7="|   Ayuda                      presione :  0    |";
+
+        for (int x=0; x<ancho; x++) {
+            if(ancho==0){
+                break;  
+            }else{
+                System.out.print("=");
+                ancho--;    
+            }          
+        } 
+        System.out.println("");
+        System.out.println(opcion1);
+        System.out.println(opcion2);
+        System.out.println(opcion3);
+        System.out.println(opcion4);
+        System.out.println(opcion5);
+        System.out.println(opcion6);
+        System.out.println(opcion7);
+        
+
+        ancho=98;
+        for (int z=0; z<ancho; z++) {
+
+            if(ancho==0){
+                break;  
+            }else{
+                System.out.print("=");
+                ancho--;    
+            }          
+        }
+        System.out.println("");
+        System.out.println("");
+        System.out.print("    Ingrese opcion >>>>>>>>  : ");
+
+
+        
+
+
+
+
+
+
+
+
+
+
+ 
+    }   
 
 
 

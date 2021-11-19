@@ -1,12 +1,14 @@
 package IEFI.Conector;
 
 import java.sql.*;
+import java.sql.DriverManager;
 
 public class Conectar_bd {
 //---------------------------------------
 //Atributos
 //---------------------------------------
  private String conecto;
+ //private String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
  private String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
  private String usuario=("root");
  private String clave=("1234");
@@ -19,12 +21,12 @@ Connection con;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection(this.url, this.usuario, this.clave);
-            
+            //con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/iefi_programacion_1","root","1234");
             if(accion==1){
             System.out.println("Conexion con la base de datos Exitosa");
             }
         } catch (Exception e) {
-            System.out.println("No conecta");
+            System.out.println("No hay conexion con base de datos !!!!!!");
         }
     }
 //---------------------------------------
@@ -58,8 +60,9 @@ Connection con;
         conecto=('"'+url+'"'+','+'"'+usuario+'"'+','+'"'+clave+'"');
               return conecto;
     }
-
 //-----------------------------------------------
 //Busqueda
 //-----------------------------------------------
+
+
 }

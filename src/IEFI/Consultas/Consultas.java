@@ -41,6 +41,8 @@ public class Consultas {
            }
             }catch (Exception e){
         System.out.println("Error en listar alumnos");
+        System.out.println("");
+        System.out.print("Presione cero para volver al menu >> : ");
        }    
     } 
 
