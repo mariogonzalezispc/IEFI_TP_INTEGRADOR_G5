@@ -23,10 +23,10 @@ Connection con;
             con=DriverManager.getConnection(this.url, this.usuario, this.clave);
             //con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/iefi_programacion_1","root","1234");
             if(accion==1){
-            System.out.println("Conexion con la base de datos Exitosa");
+            System.out.println("    Conexion con la base de datos exitosa !!!!");
             }
         } catch (Exception e) {
-            System.out.println("No hay conexion con base de datos !!!!!!");
+            System.out.println("    No hay conexion con base de datos !!!!!!");
         }
     }
 //---------------------------------------

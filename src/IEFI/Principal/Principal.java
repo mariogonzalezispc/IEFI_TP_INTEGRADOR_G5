@@ -15,11 +15,13 @@ public class Principal {
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
         CabeceraDoc();//clase que imprime la cabecera del documento
-        Opciones();
+        Thread.sleep(4000);//espero 4 segundos
+        LimpiarPantalla();//clase que limpia la pantalla
+        Opciones();//clase que imprime las opciones del menu   
     //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while Switch
-            boolean salir1=false;//declaro variable boleana para el while opcion3
+            //boolean salir1=false;//declaro variable boleana para el while opcion3
             boolean salir2=false;//declaro variable boleana para el while opcion4
             boolean salir3=false;//declaro variable boleana para el while opcion5
             //----------------------------------------------------------------------      
@@ -48,9 +50,9 @@ public class Principal {
      //---------------------------------------------------------------------- 
                     case 2:
                     LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("---------------------------------");                    
-                    System.out.println("Listado de alumnos Grupo 5 ISPC  ");
-                    System.out.println("---------------------------------");
+                    System.out.println("=================================================");                    
+                    System.out.println("|   Listado de alumnos Grupo 5 ISPC             |");
+                    System.out.println("=================================================");
                     System.out.println("");
                     Consultas muestra=new Consultas();
                     muestra.mostrarDatos(accion);
@@ -58,14 +60,17 @@ public class Principal {
      //---------------------------------------------------------------------- 
                     case 3:
                     LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("------------------------------------");                    
-                    System.out.println("| Cargar nuevo alumno Grupo 5 ISPC | ");
-                    System.out.println("------------------------------------");
+                    System.out.println("=================================================");                    
+                    System.out.println("|   Carga nuevo alumno Grupo 5 ISPC             |");
+                    System.out.println("=================================================");
                     System.out.println("");
+
+
+
                     String ape="";
                     String nom="";
                     int dni=0;
-                    System.out.println("Ingrese apellido del alumno\n");
+                    /*System.out.println("Ingrese apellido del alumno\n");
                     Scanner a1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                         ape=a1.next();//metodo scanner captura dato ingresado
                         System.out.println("Ingrese nombre del alumno\n");
@@ -79,18 +84,27 @@ public class Principal {
                                     salir1=true;
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
-                                    }  
+                                    }  */
                                         Insertar I1=new Insertar(nom, ape, dni);
-                                            I1.insertarDatos(accion); 
-                                                salir1=false;
+                                          //I1.insertarDatos(accion); 
+                                          I1.insertarDatos(accion); 
+                                          //salir1=false;
                     break;
      //----------------------------------------------------------------------              
                     case 4:
                     LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("---------------------------------");                    
-                    System.out.println("| Modificar DNI                 |");
-                    System.out.println("---------------------------------");
+                    System.out.println("=================================================");                    
+                    System.out.println("|   Modificar DNI de alumno Grupo 5 ISPC        |");
+                    System.out.println("=================================================");
                     System.out.println("");
+
+
+
+
+
+
+
+
                     ape="";
                     nom="";  
                     dni=0;
@@ -110,6 +124,12 @@ public class Principal {
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }     
+
+
+
+
+
+
                     Insertar I2=new Insertar(nom, ape, dni);                    
                     I2.modificarDatos(accion);
                     salir2=false;
@@ -117,9 +137,9 @@ public class Principal {
      //-----------------------------------------------------------------------
                     case 5:
                     LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("---------------------------------");                    
-                    System.out.println("|    Eliminar registro alumno   |");
-                    System.out.println("---------------------------------");
+                    System.out.println("=================================================");                    
+                    System.out.println("|   Eliminar registro alumno                    |");
+                    System.out.println("=================================================");
                     System.out.println("");
                     ape="";
                     nom="";  
@@ -131,17 +151,6 @@ public class Principal {
                     Scanner n3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                         nom=n3.next();//metodo scanner captura dato ingresado
 
-                        /*System.out.println("Ingrese documento del alumno\n");
-                           
-                            while (salir3==false) {
-                            Scanner d3 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
-                                try {//try que restringe errores de ingreso de opcion 
-                                    dni=d3.nextInt();//metodo scanner captura dato ingresado solo si es entero
-                                    salir3=true;
-                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
-                                    System.out.println("ERROR: ingrese solo numeros");}
-                                } */
-                                
                                 
                     Insertar I3=new Insertar(nom, ape, dni);
                     I3.eliminarDatos(accion);
@@ -153,7 +162,9 @@ public class Principal {
                     break;
      //---------------------------------------------------------------------- 
                     case 9://sale del programa
-                        System.out.println("Fin de programa");
+                    System.out.println("");//espacio en blanco
+                    System.out.println("    Fin de programa      ");//Fin del programa
+                    System.out.println("");//espacio en blanco
                         opcion.close();//cierra scanner
                         salir=true;// sale del while
                     break;
