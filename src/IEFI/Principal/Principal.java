@@ -9,26 +9,19 @@ import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
-
 public class Principal {
     public static void main(String[] args) throws Exception {
         int accion=0;//variable para el switch
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
         CabeceraDoc();//clase que imprime la cabecera del documento
-
-
-        
-
-
-
     //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while Switch
             boolean salir1=false;//declaro variable boleana para el while opcion3
             boolean salir2=false;//declaro variable boleana para el while opcion4
-     //----------------------------------------------------------------------      
+            boolean salir3=false;//declaro variable boleana para el while opcion5
+            //----------------------------------------------------------------------      
             while (salir==false) {//verifico si entro o no al while
      //----------------------------------------------------------------------            
             Scanner opcion = new Scanner(System.in);//capturo el valor ingresado por el usuario
@@ -45,8 +38,6 @@ public class Principal {
      //---------------------------------------------------------------------- 
                     case 1://generar una conexion
                     Conectar_bd c1=new Conectar_bd(accion);
-
-    
                     break;
      //---------------------------------------------------------------------- 
                     case 2:
@@ -80,15 +71,12 @@ public class Principal {
                                 try {//try que restringe errores de ingreso de opcion 
                                     dni=d1.nextInt();//metodo scanner captura dato ingresado solo si es entero
                                     salir1=true;
-                                    d1.close();
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
-                                }        
-                    Insertar I1=new Insertar(nom, ape, dni);
-                    I1.insertarDatos(accion);
-                    salir1=false;
-                    a1.close();
-                    n1.close();
+                                    }  
+                                        Insertar I1=new Insertar(nom, ape, dni);
+                                            I1.insertarDatos(accion); 
+                                                salir1=false;
                     break;
      //----------------------------------------------------------------------              
                     case 4:
@@ -107,24 +95,55 @@ public class Principal {
                     Scanner n2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                         nom=n2.next();//metodo scanner captura dato ingresado
                         System.out.println("Ingrese documento del alumno\n");
+                           
                             while (salir2==false) {
                             Scanner d2 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
                                 try {//try que restringe errores de ingreso de opcion 
                                     dni=d2.nextInt();//metodo scanner captura dato ingresado solo si es entero
                                     salir2=true;
-                                    d2.close();
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }     
                     Insertar I2=new Insertar(nom, ape, dni);
                     I2.modificarDatos(accion);
                     salir2=false;
-                    a2.close();
-                    n2.close();
                     break;
      //-----------------------------------------------------------------------
                     case 5:
-                        System.out.println("Opcion 5");
+                    LimpiarPantalla();//clase que limpia la pantalla
+                    System.out.println("---------------------------------");                    
+                    System.out.println("|    Eliminar registro alumno   |");
+                    System.out.println("---------------------------------");
+                    System.out.println("");
+                    ape="";
+                    nom="";  
+                    dni=0;
+                    System.out.println("Ingrese apellido del alumno\n");
+                    Scanner a3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        ape=a3.next();//metodo scanner captura dato ingresado 
+                        System.out.println("Ingrese nombre del alumno\n");
+                    Scanner n3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                        nom=n3.next();//metodo scanner captura dato ingresado
+
+                        /*System.out.println("Ingrese documento del alumno\n");
+                           
+                            while (salir3==false) {
+                            Scanner d3 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
+                                try {//try que restringe errores de ingreso de opcion 
+                                    dni=d3.nextInt();//metodo scanner captura dato ingresado solo si es entero
+                                    salir3=true;
+                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
+                                    System.out.println("ERROR: ingrese solo numeros");}
+                                } */
+                                
+                                
+                    Insertar I3=new Insertar(nom, ape, dni);
+                    I3.eliminarDatos(accion);
+                    salir2=false;
+                   
+                   
+                   
+                   
                     break;
      //-------------------------------------------------------------------------
                     case 6:
@@ -143,7 +162,6 @@ public class Principal {
                         System.out.println("Fin de programa");
                         opcion.close();//cierra scanner
                         salir=true;// sale del while
-                        
                     break;
      //----------------------------------------------------------------------                 
                     default://cae a default solo si es reiniciado por la exeption 
