@@ -52,9 +52,9 @@ public class Principal {
      //---------------------------------------------------------------------- 
                     case 3:
                     LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("---------------------------------");                    
-                    System.out.println("Cargar nuevo alumno Grupo 5 ISPC");
-                    System.out.println("---------------------------------");
+                    System.out.println("------------------------------------");                    
+                    System.out.println("| Cargar nuevo alumno Grupo 5 ISPC | ");
+                    System.out.println("------------------------------------");
                     System.out.println("");
                     String ape="";
                     String nom="";
@@ -104,7 +104,7 @@ public class Principal {
                                     } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }     
-                    Insertar I2=new Insertar(nom, ape, dni);
+                    Insertar I2=new Insertar(nom, ape, dni);                    
                     I2.modificarDatos(accion);
                     salir2=false;
                     break;
