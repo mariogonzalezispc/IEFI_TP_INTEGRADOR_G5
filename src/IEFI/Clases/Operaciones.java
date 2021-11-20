@@ -178,10 +178,6 @@ public void verificarConexion() throws SQLException{//metodo mostrar datos
             System.out.println("");//salto de linea
    } 
 } 
-
-
-
-
 //-----------------------------------------------
 //Fin de la clase
 //-----------------------------------------------
