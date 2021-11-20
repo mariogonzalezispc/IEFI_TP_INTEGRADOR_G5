@@ -6,42 +6,24 @@ public class Operaciones {//clase insertar
 //-----------------------------------------------
 //Atributos
 //-----------------------------------------------
+    private String url;//=("jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    private String usuario;//=("root");//declaro variable de usuario
+    private String clave;//=("1234");//declaro variable de clave
     String nombre;//nombre de la persona
     String apellido;//apellido de la persona
     int dni;  //dni de la persona
-    private String url;
-    private String usuario;
-    private String clave;
-//-----------------------------------------------
+    //-----------------------------------------------
 //Constructor
 //-----------------------------------------------
 public Operaciones(){//constructor
 }
-//---------------------------------------
-//metodo Setter para guardar url
-//---------------------------------------
-public void setUrl(String url){
-    this.url=url;
-}   
-//---------------------------------------
-//metodo Setter para guardar usuario
-//---------------------------------------
-public void setUsuario(String usuario){
-    this.usuario=usuario;
-}   
-//---------------------------------------
-//metodo Setter para guardar direccion
-//---------------------------------------
-public void setDire(String url,String usuario,String clave){
-    this.url=url;
-    this.usuario=usuario;
-    this.clave=clave;
-} 
-//---------------------------------------
-//metodo Getter para Mostrar
-//---------------------------------------
-public String getDire(){
-    return this.url+" "+this.usuario+" "+this.clave;
+//-----------------------------------------------
+//Metodo setter para configurar la url
+//-----------------------------------------------
+public void setUrl(String url,String usuario,String clave){//metodo setter para configurar la url
+    this.url=url;//asigno la url
+    this.usuario=usuario;//asigno el usuario
+    this.clave=clave;//asigno la clave
 }
 
 
@@ -82,11 +64,11 @@ public void modificarDatos() {//metodo modificarDatos
     Connection cn;//declaro variable de conexion
     Statement st;//declaro variable de sentencia
     int r1;//declaro variable de resultado
-    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    //String usuario=("root");//declaro variable de usuario
+   // String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    ///String usuario=("root");//declaro variable de usuario
     //String clave=("1234");//declaro variable de clave
         try{//inicio try
-            cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
+            cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("Ingrese apellido del alumno\n");//pido el apellido
                 Scanner a2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                     apellido=a2.next();//metodo scanner captura dato ingresado 
@@ -128,8 +110,8 @@ public void eliminarDatos() {
     //String usuario=("root");
     //String clave=("1234");
         try{
-            cn = DriverManager.getConnection(url,usuario,clave); 
-            System.out.println("Ingrese apellido del alumno\n");
+            cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion 
+            System.out.println("Ingrese apellido del alumno\n");//pido el apellido    
                 Scanner a3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                     apellido=a3.next();//metodo scanner captura dato ingresado 
                     System.out.println("Ingrese nombre del alumno\n");
@@ -161,7 +143,7 @@ public void insertarDatos(){
     //String usuario=("root");
     //String clave=("1234");
         try{
-            cn = DriverManager.getConnection(url,usuario,clave);
+            cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("Ingrese apellido del alumno\n");
             Scanner a1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                     apellido=a1.next();//metodo scanner captura dato ingresado
@@ -201,7 +183,7 @@ public void verificarConexion() throws SQLException{//metodo mostrar datos
     //String usuario=("root");//declaro variable de usuario
     //String clave=("1234");//declaro variable de clave
         try{//inicio try
-            cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
+            cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("");//salto de linea
             System.out.println("    Conexion con la base de datos exitosa !!!!");
             cn.close();//cierro la conexion   
@@ -209,11 +191,12 @@ public void verificarConexion() throws SQLException{//metodo mostrar datos
         }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error         
             System.out.println("");//salto de linea
-            System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
-
+            //System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
    } 
-   
 } 
+
+
+
 
 //-----------------------------------------------
 //Fin de la clase

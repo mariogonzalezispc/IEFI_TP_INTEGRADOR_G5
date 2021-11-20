@@ -10,15 +10,14 @@ public class Principal {
         int accion=0;//variable para el switch
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
-
-
-
         Operaciones dire=new Operaciones();//instancio la clase operaciones
-        //dire.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1");
-        //dire.setUsuario("root");
-        dire.setDire("jdbc:mysql://localhost:3306/iefi_programacion_1", "root", "1234");
-        System.out.println("Prueba de getter"+dire.getDire());
-        Thread.sleep(4000);//espero 4 segundos
+        dire.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1", "root", "1235");
+
+
+
+
+
+
 
 
 
