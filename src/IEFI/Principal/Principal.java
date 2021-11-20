@@ -1,10 +1,8 @@
 
 package IEFI.Principal;
-
 import IEFI.Conector.*;
 import IEFI.Consultas.*;
 import IEFI.Insertar.*;
-//import java.sql.*;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,257 +19,184 @@ public class Principal {
     //---------------------------------------------------------------------- 
         try {
             boolean salir=false;//declaro variable boleana para el while Switch
-            //boolean salir1=false;//declaro variable boleana para el while opcion3
-            boolean salir2=false;//declaro variable boleana para el while opcion4
-            boolean salir3=false;//declaro variable boleana para el while opcion5
-            //----------------------------------------------------------------------      
+    //----------------------------------------------------------------------      
             while (salir==false) {//verifico si entro o no al while
-     //----------------------------------------------------------------------            
-            Scanner opcion = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                try {//try que restringe errores de ingreso de opcion 
-                    accion=opcion.nextInt();//metodo scanner captura dato ingresado solo si es entero
-                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
-                    System.out.println("ERROR: el valor ingresado no es una opcion");
-                    accion=0;//restablecemos el valor de la variable a cero para que entre por defecto
-                    }
-     //----------------------------------------------------------------------
-     //Switch para decidir el valor ingresado por el usuario
-     //----------------------------------------------------------------------
+    //----------------------------------------------------------------------            
+                Scanner opcion = new Scanner(System.in);//capturo el valor ingresado por el usuario
+                    try {//try que restringe errores de ingreso de opcion 
+                        accion=opcion.nextInt();//metodo scanner captura dato ingresado solo si es entero
+                        } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
+                        System.out.println("ERROR: el valor ingresado no es una opcion");//mensaje de error
+                        accion=0;//restablecemos el valor de la variable a cero para que entre por defecto
+                        }
+    //----------------------------------------------------------------------
+    //Switch para decidir el valor ingresado por el usuario
+    //----------------------------------------------------------------------
             switch(accion) {
-     //---------------------------------------------------------------------- 
+    //---------------------------------------------------------------------- 
                     case 1://generar una conexion
-                    //Opciones();
-                    Conectar_bd c1=new Conectar_bd(accion);
-                    Thread.sleep(2000);
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    Opciones();
-
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            System.out.println("=================================================");                    
+                            System.out.println("|   Prueba de conexion con base de datos        |");
+                            System.out.println("=================================================");
+                            System.out.println(""); //salto            
+                            Conectar_bd c1=new Conectar_bd(accion);//instancio la clase conectar_bd
+                            Thread.sleep(2000);//espero 2 segundos
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            Opciones();//clase que imprime las opciones del menu
                     break;
-     //---------------------------------------------------------------------- 
+    //---------------------------------------------------------------------- 
                     case 2:
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("=================================================");                    
-                    System.out.println("|   Listado de alumnos Grupo 5 ISPC             |");
-                    System.out.println("=================================================");
-                    System.out.println("");
-                    Consultas muestra=new Consultas();
-                    muestra.mostrarDatos(accion);
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            System.out.println("=================================================");                    
+                            System.out.println("|   Listado de alumnos Grupo 5 ISPC             |");
+                            System.out.println("=================================================");
+                            System.out.println(""); //salto
+                            //Consultas muestra=new Consultas();//instancio la clase consultas
+                            //muestra.mostrarDatos(accion);//llamo al metodo mostrarDatos
+                            Insertar I0=new Insertar();//instancio la clase insertar
+                            I0.mostrarDatos(); //llamo al metodo mostrarDatos
                     break;
-     //---------------------------------------------------------------------- 
+    //---------------------------------------------------------------------- 
                     case 3:
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("=================================================");                    
-                    System.out.println("|   Carga nuevo alumno Grupo 5 ISPC             |");
-                    System.out.println("=================================================");
-                    System.out.println("");
-
-
-
-                    String ape="";
-                    String nom="";
-                    int dni=0;
-                    /*System.out.println("Ingrese apellido del alumno\n");
-                    Scanner a1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        ape=a1.next();//metodo scanner captura dato ingresado
-                        System.out.println("Ingrese nombre del alumno\n");
-                    Scanner n1 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        nom=n1.next();//metodo scanner captura dato ingresado
-                        System.out.println("Ingrese documento del alumno\n");
-                            while (salir1==false) {
-                            Scanner d1 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
-                                try {//try que restringe errores de ingreso de opcion 
-                                    dni=d1.nextInt();//metodo scanner captura dato ingresado solo si es entero
-                                    salir1=true;
-                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
-                                    System.out.println("ERROR: ingrese solo numeros");}
-                                    }  */
-                                        Insertar I1=new Insertar(nom, ape, dni);
-                                          //I1.insertarDatos(accion); 
-                                          I1.insertarDatos(accion); 
-                                          //salir1=false;
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            System.out.println("=================================================");                    
+                            System.out.println("|   Carga nuevo alumno Grupo 5 ISPC             |");
+                            System.out.println("=================================================");
+                            System.out.println(""); //salto
+                            Insertar I1=new Insertar();//instancio la clase insertar
+                            I1.insertarDatos(); //llamo al metodo insertarDatos
                     break;
-     //----------------------------------------------------------------------              
+    //----------------------------------------------------------------------              
                     case 4:
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("=================================================");                    
-                    System.out.println("|   Modificar DNI de alumno Grupo 5 ISPC        |");
-                    System.out.println("=================================================");
-                    System.out.println("");
-
-
-
-
-
-
-
-
-                    ape="";
-                    nom="";  
-                    dni=0;
-                    System.out.println("Ingrese apellido del alumno\n");
-                    Scanner a2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        ape=a2.next();//metodo scanner captura dato ingresado 
-                        System.out.println("Ingrese nombre del alumno\n");
-                    Scanner n2 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        nom=n2.next();//metodo scanner captura dato ingresado
-                        System.out.println("Ingrese documento del alumno\n");
-                           
-                            while (salir2==false) {
-                            Scanner d2 = new Scanner(System.in);//capturo el valor ingresado por el usuario                       
-                                try {//try que restringe errores de ingreso de opcion 
-                                    dni=d2.nextInt();//metodo scanner captura dato ingresado solo si es entero
-                                    salir2=true;
-                                    } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
-                                    System.out.println("ERROR: ingrese solo numeros");}
-                                }     
-
-
-
-
-
-
-                    Insertar I2=new Insertar(nom, ape, dni);                    
-                    I2.modificarDatos(accion);
-                    salir2=false;
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            System.out.println("=================================================");                    
+                            System.out.println("|   Modificar DNI de alumno Grupo 5 ISPC        |");
+                            System.out.println("=================================================");
+                            System.out.println("");//salto
+                            Insertar I2=new Insertar();//instancio la clase insertar                         
+                            I2.modificarDatos();//llamo al metodo modificarDatos
                     break;
-     //-----------------------------------------------------------------------
+    //-----------------------------------------------------------------------
                     case 5:
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    System.out.println("=================================================");                    
-                    System.out.println("|   Eliminar registro alumno                    |");
-                    System.out.println("=================================================");
-                    System.out.println("");
-                    ape="";
-                    nom="";  
-                    dni=0;
-                    System.out.println("Ingrese apellido del alumno\n");
-                    Scanner a3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        ape=a3.next();//metodo scanner captura dato ingresado 
-                        System.out.println("Ingrese nombre del alumno\n");
-                    Scanner n3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
-                        nom=n3.next();//metodo scanner captura dato ingresado
-
-                                
-                    Insertar I3=new Insertar(nom, ape, dni);
-                    I3.eliminarDatos(accion);
-                    salir2=false;
-                   
-                   
-                   
-                   
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            System.out.println("=================================================");                    
+                            System.out.println("|   Eliminar registro alumno Grupo 5 ISPC       |");
+                            System.out.println("=================================================");
+                            System.out.println("");//salto
+                            Insertar I3=new Insertar();//instancio la clase insertar
+                            I3.eliminarDatos();//llamo al metodo eliminarDatos
                     break;
-     //---------------------------------------------------------------------- 
+    //---------------------------------------------------------------------- 
                     case 9://sale del programa
-                    System.out.println("");//espacio en blanco
-                    System.out.println("    Fin de programa      ");//Fin del programa
-                    System.out.println("");//espacio en blanco
-                        opcion.close();//cierra scanner
-                        salir=true;// sale del while
+                            System.out.println("");//espacio en blanco
+                            System.out.println("    Fin de programa      ");//Fin del programa
+                            System.out.println("");//espacio en blanco
+                            opcion.close();//cierra scanner
+                            salir=true;// sale del while
                     break;
     //---------------------------------------------------------------------- 
                     case 0://sale del programa
-                    LimpiarPantalla();//clase que limpia la pantalla
-                    Opciones();//llama a la funcion que muestra las opciones            
-                    salir=false;// sale del while
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            Opciones();//llama a la funcion que muestra las opciones            
+                            salir=false;// sale del while
                     break;                
-     //----------------------------------------------------------------------                 
+    //----------------------------------------------------------------------                 
                     default://cae a default solo si es reiniciado por la exeption 
-                        System.out.println("Reintente ingresar opcion");
+                            System.out.println("    Opcion no valida");
+                            System.out.println("");
+                            Thread.sleep(1000);//espero 1 segundo
+                            LimpiarPantalla();//clase que limpia la pantalla
+                            Opciones();
                     break;                    
                     }
                 }
-            } catch (Exception e) {
-                    System.out.println(e);
+            } catch (Exception e) {//cae a la exeption si se ingresa una opcion no valida
+                            System.out.println(e);//imprime el error
         }
     }
-
-    //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
 //Void de ayuda al programa principal 
 //--------------------------------------------------------------------------------------
-    public static void LimpiarPantalla() {
+    public static void LimpiarPantalla() {//metodo que limpia la pantalla
         try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                } catch (Exception e) {
-            System.out.println(e);
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();//limpia la pantalla
+                } catch (Exception e) {   
+            System.out.println(e);//imprime el error
         }
     }
 //--------------------------------------------------------------------------------------
-        public static void CabeceraDoc() {
-            DateTimeFormatter cfecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            DateTimeFormatter chora = DateTimeFormatter.ofPattern("HH:mm");
-            String cmotivo="IEFI_Programacion_1";
-            String institucion="| Institucion : ISPC  Materia : Programacion 1 JAVA";
-            String total="| Aula  3  Grupo 5  :  Ejercicio : "+cmotivo+" |";
-            String Abril=("| Integrantes :  Clavaguera, Abril");
-            String Laura=("|                Heredia, Laura ");
-            String Monica=("|                Zapata, Monica ");
-            String Gaston=("|                Ferreyra, Gaston ");
-            String Mario=("|                Gonzalez, Mario ");
-            
-
-                try {
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        public static void CabeceraDoc() {//metodo que imprime la cabecera del programa
+            DateTimeFormatter cfecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");//formato de fecha
+            DateTimeFormatter chora = DateTimeFormatter.ofPattern("HH:mm");//formato de hora
+            String cmotivo="IEFI_Programacion_1";//motivo de la ejecucion del programa
+            String institucion="| Institucion : ISPC  Materia : Programacion 1 JAVA";//institucion del programa
+            String total="| Aula  3  Grupo 5  :  Ejercicio : "+cmotivo+" |";//total del programa
+            String Abril=("| Integrantes :  Clavaguera, Abril");//integrantes del programa
+            String Laura=("|                Heredia, Laura ");//integrantes del programa
+            String Monica=("|                Zapata, Monica ");//integrantes del programa
+            String Gaston=("|                Ferreyra, Gaston ");//integrantes del programa
+            String Mario=("|                Gonzalez, Mario ");//integrantes del programa
+                try {//try catch para imprimir la cabecera
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();//limpia la pantalla
                     } catch (Exception e) {
                 }
-                for (int x=0; x<total.length(); x++) {
-                    System.out.print("=");           
+                for (int x=0; x<total.length(); x++) {//for para imprimir la cabecera
+                    System.out.print("="); //imprime una linea de =          
                 }          
-        System.out.println();
+        System.out.println();//salto
         System.out.println("| Cordoba Argentina - Fecha : "+cfecha.format(LocalDateTime.now())+ "  Hora : "+chora.format(LocalDateTime.now())+" |");
-        System.out.print(institucion);
-        Relleno(total, institucion);
-        System.out.println(total);
-        System.out.print(Abril);
-        Relleno(total, Abril);
-        System.out.print(Laura);
-        Relleno(total, Laura);        
-        System.out.print(Monica);
-        Relleno(total, Monica);
-        System.out.print(Gaston);
-        Relleno(total, Gaston);       
-        System.out.print(Mario);
-        Relleno(total, Mario);
-
+        System.out.print(institucion);//imprime la institucion   
+        Relleno(total, institucion);//metodo que rellena la linea con espacios
+        System.out.println(total);//imprime la linea total
+        System.out.print(Abril);//imprime el integrante
+        Relleno(total, Abril);//metodo que rellena la linea con espacios
+        System.out.print(Laura);//imprime el integrante
+        Relleno(total, Laura);//metodo que rellena la linea con espacios     
+        System.out.print(Monica);//imprime el integrante
+        Relleno(total, Monica);//metodo que rellena la linea con espacios
+        System.out.print(Gaston);//imprime el integrante
+        Relleno(total, Gaston);//metodo que rellena la linea con espacios       
+        System.out.print(Mario);//imprime el integrante
+        Relleno(total, Mario);//metodo que rellena la linea con espacios
             for (int k=0; k<3; k++) {
-            if (k==0) {
-                for (int z=0; z<total.length(); z++) {
-                    System.out.print("=");           
+            if (k==0) {//if para imprimir la linea de =
+                for (int z=0; z<total.length(); z++) {//for para imprimir la linea de =
+                    System.out.print("="); //imprime una linea de =          
                 }
             }
-            System.out.println(); 
-        }
+            System.out.println();//salto 
+            }
 }
 //--------------------------------------------------------------------------------------
-    public static void Relleno(String t1, String t2){
-        for (int z=0; z<t1.length(); z++) {
-            if (z!=t1.length()-t2.length()-1) {
-                System.out.print(" ");
-                }else{
-                System.out.println("|");
-                t1="";
-                t2="";
+    public static void Relleno(String t1, String t2){//metodo que rellena la linea con espacios
+        for (int z=0; z<t1.length(); z++) {//for para rellenar la linea con espacios
+            if (z!=t1.length()-t2.length()-1) {//if para rellenar la linea con espacios
+                System.out.print(" ");//imprime un espacio
+                }else{//else para rellenar la linea con espacios
+                System.out.println("|");//imprime una linea de |
+                t1="";//vacio la variable t1
+                t2="";//vacio la variable t2
                 break;                          
             }      
         } 
     }
 //--------------------------------------------------------------------------------------
-    public static void Opciones(){
-
-        int ancho=98;
-        String opcion1="|   Conectar con base de datos presione :  1    |";
-        String opcion2="|   Listar registro alumnos    presione :  2    |";
-        String opcion3="|   Insertar registro alumnos  presione :  3    |";
-        String opcion4="|   Modificar registro alumnos presione :  4    |";
-        String opcion5="|   Eliminar registro alumno   presione :  5    |";
-        String opcion6="|   Salir del programa         presione :  9    |";
-        String opcion7="|   Ayuda                      presione :  0    |";
-
-        for (int x=0; x<ancho; x++) {
-            if(ancho==0){
-                break;  
-            }else{
-                System.out.print("=");
-                ancho--;    
+    public static void Opciones(){//metodo que muestra las opciones del programa
+        int ancho=98;//ancho de la linea       
+        String opcion1="|   Conectar con base de datos presione :  1    |";//opcion 1
+        String opcion2="|   Listar registro alumnos    presione :  2    |";//opcion 2
+        String opcion3="|   Insertar registro alumnos  presione :  3    |";//opcion 3
+        String opcion4="|   Modificar registro alumnos presione :  4    |";//opcion 4
+        String opcion5="|   Eliminar registro alumno   presione :  5    |";//opcion 5
+        String opcion6="|   Salir del programa         presione :  9    |";//opcion 6
+        String opcion7="|   Menu de ayuda              presione :  0    |";//opcion 7
+        for (int x=0; x<ancho; x++) {//for para imprimir la linea de =
+            if(ancho==0){//if para imprimir la linea de =
+                break;//      
+            }else{//else para imprimir la linea de =
+                System.out.print("=");//imprime una linea de =
+                ancho--;//resta uno al ancho    
             }          
         } 
         System.out.println("");
@@ -282,11 +207,8 @@ public class Principal {
         System.out.println(opcion5);
         System.out.println(opcion6);
         System.out.println(opcion7);
-        
-
         ancho=98;
         for (int z=0; z<ancho; z++) {
-
             if(ancho==0){
                 break;  
             }else{
@@ -297,33 +219,7 @@ public class Principal {
         System.out.println("");
         System.out.println("");
         System.out.print("    Ingrese opcion >>>>>>>>  : ");
-
-
-        
-
-
-
-
-
-
-
-
-
-
- 
     }   
-
-
-
-
-
-
-
-
-
-
-
-
 //--------------------------------------------------------------------------------------
 //finde clase
 //--------------------------------------------------------------------------------------
