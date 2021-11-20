@@ -6,9 +6,9 @@ public class Operaciones {//clase insertar
 //-----------------------------------------------
 //Atributos
 //-----------------------------------------------
-    private String url;//=("jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    private String usuario;//=("root");//declaro variable de usuario
-    private String clave;//=("1234");//declaro variable de clave
+    private String url=("jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    private String usuario=("root");//declaro variable de usuario
+    private String clave=("1234");//declaro variable de clave
     String nombre;//nombre de la persona
     String apellido;//apellido de la persona
     int dni;  //dni de la persona
@@ -25,8 +25,6 @@ public void setUrl(String url,String usuario,String clave){//metodo setter para 
     this.usuario=usuario;//asigno el usuario
     this.clave=clave;//asigno la clave
 }
-
-
 //-----------------------------------------------
 //listado general
 //-----------------------------------------------
@@ -34,24 +32,21 @@ public void mostrarDatos() {//metodo mostrar datos
     Connection cn;//conexion
     Statement st;//sentencia
     ResultSet r1;//resultado
-    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    //String usuario=("root");//declaro variable de usuario
-    //String clave=("1234");//declaro variable de clave
         try{//inicio try
             cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             String sql="SELECT * FROM `alumnos` WHERE 1";//declaro variable de consulta
             st=cn.createStatement();//creo la sentencia
             r1=st.executeQuery(sql);//ejecuto la consulta
 //-----------------------------------------------
-       while(r1.next()){//
-           System.out.println(r1.getString("apellido") + " " + r1.getString("nombre") + " " + r1.getInt("DNI"));//
+       while(r1.next()){//inicio while
+       System.out.println(r1.getString("apellido") + " " + r1.getString("nombre") + " " + r1.getInt("DNI"));//imprimo los datos
        }
        System.out.println("");//salto de linea
-       System.out.print("Presione cero para volver al menu >> : ");
+       System.out.print("Presione cero para volver al menu >> : ");//mensaje
        cn.close();//cierro la conexion a la base de datos
         }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error         
-            System.out.println("Error en listar alumnos");//
+            System.out.println("Error en listar alumnos");//mensaje de error
             System.out.println("");//salto de linea
             System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
    }    
@@ -64,9 +59,6 @@ public void modificarDatos() {//metodo modificarDatos
     Connection cn;//declaro variable de conexion
     Statement st;//declaro variable de sentencia
     int r1;//declaro variable de resultado
-   // String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    ///String usuario=("root");//declaro variable de usuario
-    //String clave=("1234");//declaro variable de clave
         try{//inicio try
             cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("Ingrese apellido del alumno\n");//pido el apellido
@@ -84,7 +76,8 @@ public void modificarDatos() {//metodo modificarDatos
                             } catch(Exception e) {//se da la exeption si se ingresa caracteres no permitidos
                             System.out.println("ERROR: ingrese solo numeros");}//mensaje de error
                         }  
-                        String sql="UPDATE `alumnos` SET DNI='"+dni+"' WHERE (apellido='"+apellido+"' AND nombre='"+nombre+"')";                       
+        String sql="UPDATE `alumnos` SET DNI='"+dni+"' WHERE (apellido='"+apellido+"' AND nombre='"+nombre+"')";
+        //declaro variable de consulta                       
         st=cn.createStatement();//creo la sentencia
         r1=st.executeUpdate(sql);//ejecuto la sentencia
         System.out.println(" ");//espacio
@@ -102,14 +95,11 @@ public void modificarDatos() {//metodo modificarDatos
 //-----------------------------------------------
 //Eliminar un registro
 //-----------------------------------------------
-public void eliminarDatos() {
-    Connection cn;
-    Statement st;
-    int r1;
-    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
-    //String usuario=("root");
-    //String clave=("1234");
-        try{
+public void eliminarDatos() {//metodo eliminarDatos
+    Connection cn;//declaro variable de conexion
+    Statement st;//declaro variable de sentencia
+    int r1;//declaro variable de resultado
+        try{//inicio try
             cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion 
             System.out.println("Ingrese apellido del alumno\n");//pido el apellido    
                 Scanner a3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
@@ -117,31 +107,28 @@ public void eliminarDatos() {
                     System.out.println("Ingrese nombre del alumno\n");
                 Scanner n3 = new Scanner(System.in);//capturo el valor ingresado por el usuario
                     nombre=n3.next();//metodo scanner captura dato ingresado
-                    String sql="DELETE FROM `alumnos` WHERE (apellido='"+apellido+"' AND nombre='"+nombre+"')";
-        st=cn.createStatement();
-        r1=st.executeUpdate(sql);
-        System.out.println("Borrado de registro exitoso"); 
-        System.out.println("");
-        System.out.print("Presione cero para volver al menu >> : ");
+        String sql="DELETE FROM `alumnos` WHERE (apellido='"+apellido+"' AND nombre='"+nombre+"')";
+        st=cn.createStatement();//creo la sentencia
+        r1=st.executeUpdate(sql);//ejecuto la sentencia
+        System.out.println("Borrado de registro exitoso"); //mensaje de exito
+        System.out.println("");//Salto de linea
+        System.out.print("Presione cero para volver al menu >> : ");//pregunta de volver al menu
         cn.close();//cierro la conexion con la base de datos
         }catch (Exception e){
-            System.out.println("No hay conexion con base de datos !!!!!!");        
-            System.out.println("Error en borrar registro alumno");
-            System.out.println("");
-            System.out.print("Presione cero para volver al menu >> : ");
+            System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error      
+            System.out.println("Error en borrar registro alumno");//mensaje de error
+            System.out.println("");//Salto de linea
+            System.out.print("Presione cero para volver al menu >> : ");//pregunta de volver al menu
    }   
 }
 //-----------------------------------------------
 //Insertar un registro nuevo
 //-----------------------------------------------
-public void insertarDatos(){
+public void insertarDatos(){//metodo insertarDatos
     boolean salir1=false;//declaro variable boleana para el while opcion3
     Connection cn; //declaracion de variable cn
     Statement st;//declaracion de variable st
     int r1;
-    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
-    //String usuario=("root");
-    //String clave=("1234");
         try{
             cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("Ingrese apellido del alumno\n");
@@ -160,18 +147,19 @@ public void insertarDatos(){
                                     System.out.println("ERROR: ingrese solo numeros");}
                                 }  
 String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES (NULL, '"+nombre+"', '"+apellido+"','"+dni+"')";
-            st=cn.createStatement();
-            r1=st.executeUpdate(sql);
-            System.out.println(" ");
-            System.out.println("Carga de datos exitosa"); 
-            System.out.println("");
-            System.out.print("Presione cero para volver al menu >> : ");
+//declaro variable de consulta
+            st=cn.createStatement();//creo la sentencia
+            r1=st.executeUpdate(sql);//ejecuto la sentencia
+            System.out.println(" ");//salto de linea
+            System.out.println("Carga de datos exitosa");//mensaje de exito 
+            System.out.println("");//salto de linea
+            System.out.print("Presione cero para volver al menu >> : ");//pregunta de volver al menu
             cn.close();//cierro la conexion a la base de datos
     }catch (Exception e){
-            System.out.println("No hay conexion con base de datos !!!!!!");        
-            System.out.println("Error en cargar alumno nuevo");
-            System.out.println("");
-            System.out.print("Presione cero para volver al menu >> : ");
+            System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error        
+            System.out.println("Error en cargar alumno nuevo");//mensaje de error
+            System.out.println("");//salto de linea
+            System.out.print("Presione cero para volver al menu >> : ");//pregunta de volver al menu
    }   
 }
 //-----------------------------------------------
@@ -179,19 +167,15 @@ String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES 
 //-----------------------------------------------
 public void verificarConexion() throws SQLException{//metodo mostrar datos
     Connection cn;//conexion
-    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    //String usuario=("root");//declaro variable de usuario
-    //String clave=("1234");//declaro variable de clave
         try{//inicio try
             cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             System.out.println("");//salto de linea
-            System.out.println("    Conexion con la base de datos exitosa !!!!");
+            System.out.println("    Conexion con la base de datos exitosa !!!!");//mensaje de conexion exitosa
             cn.close();//cierro la conexion   
        System.out.println("");//salto de linea
         }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error         
             System.out.println("");//salto de linea
-            //System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
    } 
 } 
 

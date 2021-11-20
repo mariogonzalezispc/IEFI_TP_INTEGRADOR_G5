@@ -1,33 +1,23 @@
 
-package IEFI.Principal;
-import java.util.Scanner;
-import IEFI.Clases.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+package IEFI.Principal;//package IEFI.Principal;
+import java.util.Scanner;//
+import IEFI.Clases.*;//importa clases
+import java.time.LocalDateTime;//importa clase
+import java.time.format.DateTimeFormatter;//importa clase
 
-public class Principal {
-    public static void main(String[] args) throws Exception {
+public class Principal {//clase principal
+    public static void main(String[] args) throws Exception {//metodo principal
         int accion=0;//variable para el switch
         Class.forName("com.mysql.jdbc.Driver");//cargo driver de java para mysql
         LimpiarPantalla();//clase que limpia la pantalla
         Operaciones dire=new Operaciones();//instancio la clase operaciones
         dire.setUrl("jdbc:mysql://localhost:3306/iefi_programacion_1", "root", "1235");
-
-
-
-
-
-
-
-
-
-
         CabeceraDoc();//clase que imprime la cabecera del documento
         Thread.sleep(4000);//espero 4 segundos
         LimpiarPantalla();//clase que limpia la pantalla
         Opciones();//clase que imprime las opciones del menu   
     //---------------------------------------------------------------------- 
-        try {
+        try {//inicio try
             boolean salir=false;//declaro variable boleana para el while Switch
     //----------------------------------------------------------------------      
             while (salir==false) {//verifico si entro o no al while
@@ -42,7 +32,7 @@ public class Principal {
     //----------------------------------------------------------------------
     //Switch para decidir el valor ingresado por el usuario
     //----------------------------------------------------------------------
-            switch(accion) {
+            switch(accion) {//Inicia el switch
     //---------------------------------------------------------------------- 
                     case 1://generar una conexion
                             LimpiarPantalla();//clase que limpia la pantalla
@@ -55,9 +45,9 @@ public class Principal {
                             Thread.sleep(2000);//espero 2 segundos
                             LimpiarPantalla();//clase que limpia la pantalla
                             Opciones();//clase que imprime las opciones del menu
-                    break;
+                    break;//fin case 1
     //---------------------------------------------------------------------- 
-                    case 2:
+                    case 2://Listar datos
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
                             System.out.println("|   Op2 = Listado de alumnos Grupo 5 ISPC       |");
@@ -65,9 +55,9 @@ public class Principal {
                             System.out.println(""); //salto
                             Operaciones I0=new Operaciones();//instancio la clase insertar
                             I0.mostrarDatos(); //llamo al metodo mostrarDatos
-                    break;
+                    break;//fin case 2
     //---------------------------------------------------------------------- 
-                    case 3:
+                    case 3://Insertar datos
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
                             System.out.println("|   Op3 = Carga nuevo alumno Grupo 5 ISPC       |");
@@ -75,9 +65,9 @@ public class Principal {
                             System.out.println(""); //salto
                             Operaciones I1=new Operaciones();//instancio la clase insertar
                             I1.insertarDatos(); //llamo al metodo insertarDatos
-                    break;
+                    break;//fin case 3
     //----------------------------------------------------------------------              
-                    case 4:
+                    case 4://Modificar datos
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
                             System.out.println("|   Op4 = Modificar DNI de alumno Grupo 5 ISPC  |");
@@ -85,9 +75,9 @@ public class Principal {
                             System.out.println("");//salto
                             Operaciones I2=new Operaciones();//instancio la clase insertar                         
                             I2.modificarDatos();//llamo al metodo modificarDatos
-                    break;
+                    break;//fin case 4
     //-----------------------------------------------------------------------
-                    case 5:
+                    case 5://Eliminar datos
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
                             System.out.println("|   Op5 = Eliminar registro alumno Grupo 5 ISPC |");
@@ -95,7 +85,7 @@ public class Principal {
                             System.out.println("");//salto
                             Operaciones I3=new Operaciones();//instancio la clase insertar
                             I3.eliminarDatos();//llamo al metodo eliminarDatos
-                    break;
+                    break;//fin case 5
     //---------------------------------------------------------------------- 
                     case 9://sale del programa
                             System.out.println("");//espacio en blanco
@@ -103,13 +93,13 @@ public class Principal {
                             System.out.println("");//espacio en blanco
                             opcion.close();//cierra scanner
                             salir=true;// sale del while
-                    break;
+                    break;//fin case 9
     //---------------------------------------------------------------------- 
-                    case 0://sale del programa
+                    case 0://Limpia y reinicia opciones
                             LimpiarPantalla();//clase que limpia la pantalla
                             Opciones();//llama a la funcion que muestra las opciones            
                             salir=false;// sale del while
-                    break;                
+                    break;//fin case 0                
     //----------------------------------------------------------------------                 
                     default://cae a default solo si es reiniciado por la exeption 
                             System.out.println("    Opcion no valida");
@@ -117,7 +107,7 @@ public class Principal {
                             Thread.sleep(1000);//espero 1 segundo
                             LimpiarPantalla();//clase que limpia la pantalla
                             Opciones();
-                    break;                    
+                    break; //fin default                   
                     }
                 }
             } catch (Exception e) {//cae a la exeption si se ingresa una opcion no valida
@@ -128,7 +118,7 @@ public class Principal {
 //Void de ayuda al programa principal 
 //--------------------------------------------------------------------------------------
     public static void LimpiarPantalla() {//metodo que limpia la pantalla
-        try {
+        try {//inicio try
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();//limpia la pantalla
                 } catch (Exception e) {   
             System.out.println(e);//imprime el error
@@ -154,7 +144,7 @@ public class Principal {
                     System.out.print("="); //imprime una linea de =          
                 }          
         System.out.println();//salto
-        System.out.println("| Cordoba Argentina - Fecha : "+cfecha.format(LocalDateTime.now())+ "  Hora : "+chora.format(LocalDateTime.now())+" |");
+ System.out.println("| Cordoba Argentina - Fecha : "+cfecha.format(LocalDateTime.now())+ "  Hora : "+chora.format(LocalDateTime.now())+" |");
         System.out.print(institucion);//imprime la institucion   
         Relleno(total, institucion);//metodo que rellena la linea con espacios
         System.out.println(total);//imprime la linea total
@@ -201,33 +191,33 @@ public class Principal {
         String opcion6="|   Salir del programa         presione :  9    |";//opcion 6
         String opcion7="|   Menu de ayuda              presione :  0    |";//opcion 7
         for (int x=0; x<ancho; x++) {//for para imprimir la linea de =
-            if(ancho==0){//if para imprimir la linea de =
+            if(ancho==0){//if para salir del for
                 break;//      
             }else{//else para imprimir la linea de =
                 System.out.print("=");//imprime una linea de =
                 ancho--;//resta uno al ancho    
             }          
         } 
-        System.out.println("");
-        System.out.println(opcion1);
-        System.out.println(opcion2);
-        System.out.println(opcion3);
-        System.out.println(opcion4);
-        System.out.println(opcion5);
-        System.out.println(opcion6);
-        System.out.println(opcion7);
-        ancho=98;
-        for (int z=0; z<ancho; z++) {
-            if(ancho==0){
-                break;  
-            }else{
-                System.out.print("=");
-                ancho--;    
+        System.out.println("");//salto de linea
+        System.out.println(opcion1);//imprime la opcion 1
+        System.out.println(opcion2);//imprime la opcion 2
+        System.out.println(opcion3);//imprime la opcion 3
+        System.out.println(opcion4);//imprime la opcion 4
+        System.out.println(opcion5);//imprime la opcion 5
+        System.out.println(opcion6);//imprime la opcion 6
+        System.out.println(opcion7);//imprime la opcion 7
+        ancho=98;//vuelve el ancho a 98
+        for (int z=0; z<ancho; z++) {//for para imprimir la linea de =
+            if(ancho==0){//if para salir del for
+                break;  //final del for
+            }else{//else para imprimir la linea de =
+                System.out.print("=");//
+                ancho--;    //resta uno al ancho
             }          
         }
-        System.out.println("");
-        System.out.println("");
-        System.out.print("    Ingrese opcion >>>>>>>>  : ");
+        System.out.println("");//salto de linea
+        System.out.println("");//salto de linea
+        System.out.print("    Ingrese opcion >>>>>>>>  : ");//imprime el mensaje
     }   
 //--------------------------------------------------------------------------------------
 //finde clase
