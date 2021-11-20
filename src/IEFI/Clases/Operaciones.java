@@ -6,14 +6,45 @@ public class Operaciones {//clase insertar
 //-----------------------------------------------
 //Atributos
 //-----------------------------------------------
-String nombre;//nombre de la persona
-String apellido;//apellido de la persona
-int dni;  //dni de la persona
+    String nombre;//nombre de la persona
+    String apellido;//apellido de la persona
+    int dni;  //dni de la persona
+    private String url;
+    private String usuario;
+    private String clave;
 //-----------------------------------------------
 //Constructor
 //-----------------------------------------------
 public Operaciones(){//constructor
 }
+//---------------------------------------
+//metodo Setter para guardar url
+//---------------------------------------
+public void setUrl(String url){
+    this.url=url;
+}   
+//---------------------------------------
+//metodo Setter para guardar usuario
+//---------------------------------------
+public void setUsuario(String usuario){
+    this.usuario=usuario;
+}   
+//---------------------------------------
+//metodo Setter para guardar direccion
+//---------------------------------------
+public void setDire(String url,String usuario,String clave){
+    this.url=url;
+    this.usuario=usuario;
+    this.clave=clave;
+} 
+//---------------------------------------
+//metodo Getter para Mostrar
+//---------------------------------------
+public String getDire(){
+    return this.url+" "+this.usuario+" "+this.clave;
+}
+
+
 //-----------------------------------------------
 //listado general
 //-----------------------------------------------
@@ -21,11 +52,11 @@ public void mostrarDatos() {//metodo mostrar datos
     Connection cn;//conexion
     Statement st;//sentencia
     ResultSet r1;//resultado
-    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    String usuario=("root");//declaro variable de usuario
-    String clave=("1234");//declaro variable de clave
+    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    //String usuario=("root");//declaro variable de usuario
+    //String clave=("1234");//declaro variable de clave
         try{//inicio try
-            cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
+            cn = DriverManager.getConnection(this.url,this.usuario,this.clave);//creo la conexion
             String sql="SELECT * FROM `alumnos` WHERE 1";//declaro variable de consulta
             st=cn.createStatement();//creo la sentencia
             r1=st.executeQuery(sql);//ejecuto la consulta
@@ -51,9 +82,9 @@ public void modificarDatos() {//metodo modificarDatos
     Connection cn;//declaro variable de conexion
     Statement st;//declaro variable de sentencia
     int r1;//declaro variable de resultado
-    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    String usuario=("root");//declaro variable de usuario
-    String clave=("1234");//declaro variable de clave
+    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    //String usuario=("root");//declaro variable de usuario
+    //String clave=("1234");//declaro variable de clave
         try{//inicio try
             cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
             System.out.println("Ingrese apellido del alumno\n");//pido el apellido
@@ -93,9 +124,9 @@ public void eliminarDatos() {
     Connection cn;
     Statement st;
     int r1;
-    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
-    String usuario=("root");
-    String clave=("1234");
+    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
+    //String usuario=("root");
+    //String clave=("1234");
         try{
             cn = DriverManager.getConnection(url,usuario,clave); 
             System.out.println("Ingrese apellido del alumno\n");
@@ -126,9 +157,9 @@ public void insertarDatos(){
     Connection cn; //declaracion de variable cn
     Statement st;//declaracion de variable st
     int r1;
-    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
-    String usuario=("root");
-    String clave=("1234");
+    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
+    //String usuario=("root");
+    //String clave=("1234");
         try{
             cn = DriverManager.getConnection(url,usuario,clave);
             System.out.println("Ingrese apellido del alumno\n");
@@ -166,9 +197,9 @@ String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES 
 //-----------------------------------------------
 public void verificarConexion() throws SQLException{//metodo mostrar datos
     Connection cn;//conexion
-    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
-    String usuario=("root");//declaro variable de usuario
-    String clave=("1234");//declaro variable de clave
+    //String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    //String usuario=("root");//declaro variable de usuario
+    //String clave=("1234");//declaro variable de clave
         try{//inicio try
             cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
             System.out.println("");//salto de linea
