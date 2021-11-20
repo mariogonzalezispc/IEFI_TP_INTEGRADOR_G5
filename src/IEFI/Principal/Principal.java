@@ -1,9 +1,7 @@
 
 package IEFI.Principal;
-import IEFI.Conector.*;
-import IEFI.Consultas.*;
-import IEFI.Insertar.*;
 import java.util.Scanner;
+import IEFI.Clases.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -37,10 +35,12 @@ public class Principal {
                     case 1://generar una conexion
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
-                            System.out.println("|   Prueba de conexion con base de datos        |");
+                            System.out.println("|   Op1 = Prueba de conexion con base de datos  |");
                             System.out.println("=================================================");
-                            System.out.println(""); //salto            
-                            Conectar_bd c1=new Conectar_bd(accion);//instancio la clase conectar_bd
+                            System.out.println(""); //salto   
+                            Operaciones IA=new Operaciones();  //instancio la clase Insertar
+                            IA.verificarConexion();//llamo al metodo verificar conexion       
+                            //Conectar_bd c1=new Conectar_bd(accion);//instancio la clase conectar_bd
                             Thread.sleep(2000);//espero 2 segundos
                             LimpiarPantalla();//clase que limpia la pantalla
                             Opciones();//clase que imprime las opciones del menu
@@ -49,42 +49,42 @@ public class Principal {
                     case 2:
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
-                            System.out.println("|   Listado de alumnos Grupo 5 ISPC             |");
+                            System.out.println("|   Op2 = Listado de alumnos Grupo 5 ISPC       |");
                             System.out.println("=================================================");
                             System.out.println(""); //salto
                             //Consultas muestra=new Consultas();//instancio la clase consultas
                             //muestra.mostrarDatos(accion);//llamo al metodo mostrarDatos
-                            Insertar I0=new Insertar();//instancio la clase insertar
+                            Operaciones I0=new Operaciones();//instancio la clase insertar
                             I0.mostrarDatos(); //llamo al metodo mostrarDatos
                     break;
     //---------------------------------------------------------------------- 
                     case 3:
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
-                            System.out.println("|   Carga nuevo alumno Grupo 5 ISPC             |");
+                            System.out.println("|   Op3 = Carga nuevo alumno Grupo 5 ISPC       |");
                             System.out.println("=================================================");
                             System.out.println(""); //salto
-                            Insertar I1=new Insertar();//instancio la clase insertar
+                            Operaciones I1=new Operaciones();//instancio la clase insertar
                             I1.insertarDatos(); //llamo al metodo insertarDatos
                     break;
     //----------------------------------------------------------------------              
                     case 4:
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
-                            System.out.println("|   Modificar DNI de alumno Grupo 5 ISPC        |");
+                            System.out.println("|   Op4 = Modificar DNI de alumno Grupo 5 ISPC  |");
                             System.out.println("=================================================");
                             System.out.println("");//salto
-                            Insertar I2=new Insertar();//instancio la clase insertar                         
+                            Operaciones I2=new Operaciones();//instancio la clase insertar                         
                             I2.modificarDatos();//llamo al metodo modificarDatos
                     break;
     //-----------------------------------------------------------------------
                     case 5:
                             LimpiarPantalla();//clase que limpia la pantalla
                             System.out.println("=================================================");                    
-                            System.out.println("|   Eliminar registro alumno Grupo 5 ISPC       |");
+                            System.out.println("|   Op5 = Eliminar registro alumno Grupo 5 ISPC |");
                             System.out.println("=================================================");
                             System.out.println("");//salto
-                            Insertar I3=new Insertar();//instancio la clase insertar
+                            Operaciones I3=new Operaciones();//instancio la clase insertar
                             I3.eliminarDatos();//llamo al metodo eliminarDatos
                     break;
     //---------------------------------------------------------------------- 
@@ -165,7 +165,7 @@ public class Principal {
                     System.out.print("="); //imprime una linea de =          
                 }
             }
-            System.out.println();//salto 
+            System.out.println();//salto de linea 
             }
 }
 //--------------------------------------------------------------------------------------

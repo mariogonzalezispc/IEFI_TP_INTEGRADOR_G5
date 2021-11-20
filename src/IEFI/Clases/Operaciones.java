@@ -1,10 +1,8 @@
-package IEFI.Insertar;
-import java.sql.Connection;
-import java.sql.Statement;
+package IEFI.Clases;
 import java.util.Scanner;
 import java.sql.*;
 
-public class Insertar {//clase insertar 
+public class Operaciones {//clase insertar 
 //-----------------------------------------------
 //Atributos
 //-----------------------------------------------
@@ -14,7 +12,7 @@ int dni;  //dni de la persona
 //-----------------------------------------------
 //Constructor
 //-----------------------------------------------
-public Insertar(){//constructor
+public Operaciones(){//constructor
 }
 //-----------------------------------------------
 //listado general
@@ -37,6 +35,7 @@ public void mostrarDatos() {//metodo mostrar datos
        }
        System.out.println("");//salto de linea
        System.out.print("Presione cero para volver al menu >> : ");
+       cn.close();//cierro la conexion a la base de datos
         }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error         
             System.out.println("Error en listar alumnos");//
@@ -44,13 +43,6 @@ public void mostrarDatos() {//metodo mostrar datos
             System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
    }    
 } 
-//-----------------------------------------------
-
-
-
-
-
-
 //-----------------------------------------------
 //Insertar un registro nuevo
 //-----------------------------------------------
@@ -86,6 +78,7 @@ public void modificarDatos() {//metodo modificarDatos
         System.out.println("Modificacion de datos exitosa");//mensaje de exito 
         System.out.println("");//espacio
         System.out.print("Presione cero para volver al menu >> : ");//pregunta de volver al menu
+        cn.close();//cierro la conexion a la base de datos
         }catch (Exception e){//se da la exeption si no se puede conectar a la base de datos
             System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error        
             System.out.println("Error en modificacion registro alumno");//mensaje de error
@@ -117,6 +110,7 @@ public void eliminarDatos() {
         System.out.println("Borrado de registro exitoso"); 
         System.out.println("");
         System.out.print("Presione cero para volver al menu >> : ");
+        cn.close();//cierro la conexion con la base de datos
         }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");        
             System.out.println("Error en borrar registro alumno");
@@ -159,6 +153,7 @@ String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES 
             System.out.println("Carga de datos exitosa"); 
             System.out.println("");
             System.out.print("Presione cero para volver al menu >> : ");
+            cn.close();//cierro la conexion a la base de datos
     }catch (Exception e){
             System.out.println("No hay conexion con base de datos !!!!!!");        
             System.out.println("Error en cargar alumno nuevo");
@@ -166,6 +161,29 @@ String sql="INSERT INTO `alumnos` (`id_alumno`,`nombre`,`apellido`,`DNI`)VALUES 
             System.out.print("Presione cero para volver al menu >> : ");
    }   
 }
+//-----------------------------------------------
+//Verifica conexion
+//-----------------------------------------------
+public void verificarConexion() throws SQLException{//metodo mostrar datos
+    Connection cn;//conexion
+    String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");//declaro variable de url
+    String usuario=("root");//declaro variable de usuario
+    String clave=("1234");//declaro variable de clave
+        try{//inicio try
+            cn = DriverManager.getConnection(url,usuario,clave);//creo la conexion
+            System.out.println("");//salto de linea
+            System.out.println("    Conexion con la base de datos exitosa !!!!");
+            cn.close();//cierro la conexion   
+       System.out.println("");//salto de linea
+        }catch (Exception e){
+            System.out.println("No hay conexion con base de datos !!!!!!");//mensaje de error         
+            System.out.println("");//salto de linea
+            System.out.print("Presione cero para volver al menu >> : ");//mensaje de error
+
+   } 
+   
+} 
+
 //-----------------------------------------------
 //Fin de la clase
 //-----------------------------------------------

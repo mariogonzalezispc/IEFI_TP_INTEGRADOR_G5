@@ -7,10 +7,9 @@ public class Conectar_bd {
 //---------------------------------------
 //Atributos
 //---------------------------------------
- private String conecto;
- //private String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
- private String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
- private String usuario=("root");
+ String conecto;
+ String url=( "jdbc:mysql://localhost:3306/iefi_programacion_1");
+ String usuario=("root");
  private String clave=("1234");
  int tipo;
 Connection con;
